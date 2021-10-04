@@ -1,0 +1,155 @@
+create table payment_info
+(
+    id           bigint auto_increment
+        primary key,
+    hash         varchar(255) not null,
+    partner_code varchar(255) not null,
+    request_id   varchar(255) not null,
+    version      double       not null
+);
+
+create table services
+(
+    id           bigint auto_increment
+        primary key,
+    description  varchar(255) null,
+    name         varchar(50)  not null,
+    service_icon varchar(255) not null,
+    constraint UKh4rqgjwnqidx6mvj4i22dxwxe
+        unique (name)
+);
+
+create table service_details
+(
+    id                  bigint auto_increment
+        primary key,
+    description         varchar(255)   not null,
+    name                varchar(255)   not null,
+    price               decimal(19, 2) not null,
+    service_detail_icon varchar(255)   not null,
+    service_id          bigint         not null,
+    constraint UKt5v3tqm8nwpliue0aaya2vlcc
+        unique (name, service_id),
+    constraint FKct49j0b50jr4xa6cl5g7nsws7
+        foreign key (service_id) references services (id)
+);
+
+create table ship_fees
+(
+    id           bigint auto_increment
+        primary key,
+    fee          decimal(19, 2) not null,
+    max_distance double         not null,
+    min_distance double         not null
+);
+
+create table shipper_user
+(
+    id            bigint auto_increment
+        primary key,
+    email         varchar(255) not null,
+    license_plate varchar(255) not null,
+    name          varchar(100) not null,
+    password      varchar(255) not null,
+    phone_number  varchar(255) not null,
+    role          varchar(255) not null,
+    username      varchar(50)  not null,
+    vehicle_type  varchar(255) not null
+);
+
+create table staff_users
+(
+    id           bigint auto_increment
+        primary key,
+    email        varchar(255) not null,
+    name         varchar(100) not null,
+    password     varchar(255) not null,
+    phone_number varchar(255) not null,
+    role         varchar(255) not null,
+    username     varchar(50)  not null,
+    constraint UK55dcn7m4jdprv41rh5qqjetfv
+        unique (phone_number, username, email)
+);
+
+create table users
+(
+    id             bigint auto_increment
+        primary key,
+    email          varchar(255) not null,
+    name           varchar(255) not null,
+    password       varchar(255) not null,
+    phone_number   varchar(255) not null,
+    role           varchar(255) not null,
+    username       varchar(255) not null,
+    is_social_user bit          null,
+    constraint UKmflljq3quxankee539h1vjk74
+        unique (phone_number, username, email)
+);
+
+create table addresses
+(
+    id                    bigint auto_increment
+        primary key,
+    address               varchar(255) not null,
+    city                  varchar(255) not null,
+    district              varchar(255) not null,
+    is_default_address    bit          null,
+    receiver_name         varchar(255) not null,
+    receiver_phone_number varchar(255) not null,
+    ward                  varchar(255) not null,
+    user_id               bigint       not null,
+    constraint FK1fa36y2oqhao3wgg2rw1pi459
+        foreign key (user_id) references users (id)
+);
+
+create table orders
+(
+    id                           bigint auto_increment
+        primary key,
+    created_by                   varchar(255)   null,
+    created_date                 datetime(6)    null,
+    last_updated_by              varchar(255)   null,
+    last_updated_date            datetime(6)    null,
+    delivery_date_time           datetime(6)    null,
+    distance                     double         not null,
+    is_cash_pay                  bit            null,
+    is_paid                      bit            null,
+    lat_shipping                 double         not null,
+    long_shipping                double         not null,
+    pick_up_address              varchar(255)   not null,
+    pick_up_date_time            datetime(6)    null,
+    pick_up_person_name          varchar(255)   not null,
+    pick_up_person_phone_number  varchar(255)   not null,
+    shipping_address             varchar(255)   not null,
+    shipping_person_name         varchar(255)   not null,
+    shipping_person_phone_number varchar(255)   not null,
+    status                       varchar(255)   not null,
+    total_bill                   decimal(19, 2) not null,
+    total_service_fee            decimal(19, 2) not null,
+    total_ship_fee               decimal(19, 2) not null,
+    payment_info_id              bigint         null,
+    shipfee_id                   bigint         not null,
+    shipper_user_id              bigint         null,
+    user_id                      bigint         not null,
+    constraint FK1avf6y738hjskhmmxovllx5qf
+        foreign key (payment_info_id) references payment_info (id),
+    constraint FK1vh3964kuw396p5sdngril19l
+        foreign key (shipfee_id) references ship_fees (id),
+    constraint FK32ql8ubntj5uh44ph9659tiih
+        foreign key (user_id) references users (id),
+    constraint FKgq13sblkapyxwl3x54v4mcbr3
+        foreign key (shipper_user_id) references shipper_user (id)
+);
+
+create table order_service_details
+(
+    id                bigint auto_increment
+        primary key,
+    quantity          int    not null,
+    order_id          bigint not null,
+    service_detail_id bigint not null,
+    constraint FKa7icyoovkpmr3a3191rrmsrn6
+        foreign key (service_detail_id) references service_details (id),
+    constraint FKawyes8ud3qyfdfi1wue0ksgbe
+        foreign key (order_id) references orders (id)
+);
