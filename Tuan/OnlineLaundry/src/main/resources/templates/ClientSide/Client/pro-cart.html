@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragmentsClient :: pro_head">
+</head>
+
+<body id="items">
+<header th:replace="fragmentsClient :: pro_header">
+</header>
+<div class="cart-boder">
+    <div class="cart-conver">
+        <div class="cart-cover-item">
+            <div class="cart-item">
+                <ul>
+                    <li>
+                        <span type="button" class="btn bg-info fw-bold" data-toggle="modal" data-target="#myModal"
+                              th:if="${list_SerCart.size()>0}">More Demand</span>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h4 class="modal-title fw-bold">According To Demand</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div th:each="d : ${demand}" class="cart-item">
+                                            <div class="bx-img">
+                                                <img th:src="@{'images/'+${d.getImage()}}" width="260px" height="260px"
+                                                     alt=""/>
+                                            </div>
+                                            <div class="cart-content">
+                                                <div class="cart-np">
+                                                    <h3 th:text="${d.getName()}">Name</h3>
+                                                    <h5>
+                                                        Fee: <span th:text="${d.getPrice()}"></span>
+                                                    </h5>
+                                                </div>
+                                                <div class="cart-quantity">
+                                                    <h3>
+                                                        <a th:href="@{'/addDemand/'+${d.getId()}}" class="btn btn-info">Add</a>
+                                                    </h3>
+                                                </div>
+                                                <div th:text="${d.getDescription()}" class="cart-description">
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, cum
+                                                    natus? Illum rem nobis possimus error placeat esse quae quasi
+                                                    sapiente, commodi non repudiandae mollitia ut inventore quibusdam
+                                                    modi reprehenderit!
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="visibility: hidden">Name-Price</li>
+                    <li class="fs-3">Quantity</li>
+                    <li class="fs-3">Description</li>
+                </ul>
+            </div>
+            <div class="cart-item" th:if="${list_SerCart.size()==0}">Book Is Empty</div>
+            <div th:each="i : ${list_SerCart}" class="cart-item">
+                <div class="bx-img">
+                    <img th:src="@{'images/'+${i.getImage()}}" width="260px" height="260px" alt=""/>
+                </div>
+                <div class="cart-content">
+                    <div class="cart-np">
+                        <h3 th:text="${i.getName()}">Name</h3>
+                        <h5 th:if="${i.getType().contains('Demand')}">
+                            Fee: $<span th:text="${i.getPrice() * i.getQuantity()}"> 4 </span>
+                        </h5>
+                        <h5 th:if="${!i.getType().contains('Demand')}">
+                            Price: $<span th:text="${i.getPrice() * i.getQuantity()}"> 4 </span>
+                        </h5>
+                    </div>
+                    <div th:if="${i.getType().contains('Demand')}" class="cart-quantity">
+                        <h3><span th:text="${i.getQuantity()}"></span>x</h3>
+                    </div>
+                    <div th:if="${!i.getType().contains('Demand')}" class="cart-quantity">
+                        <form th:action="@{'/edit_cartItem/'+${i.getId()}}" method="get">
+                            <h3><input class="submit_on_enter" type="number" th:name="qty" min="1"
+                                       title="after typing please enter to update" th:value="${i.getQuantity()}"
+                                       style="width:5rem;"/><span th:text="${i.getType()}"></span></h3>
+                        </form>
+                        <div class="btn-q">
+                            <a th:href="@{'/increase_cartItem?id='+${i.getId()}}" class="link"><b>+</b></a>
+                            <a th:href="@{@{'/decrease_cartItem?id='+${i.getId()}}}" class="link"><b>-</b></a>
+                        </div>
+                    </div>
+                    <div th:text="${i.getDescription()}" class="cart-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </div>
+                    <div style="align-self: flex-start;margin-top: -50px;">
+                        <a onclick="return confirm('Are you sure')" th:href="'/remove_cartItem/'+${i.getId()}" style="color: #ff1493;cursor: pointer;">
+                            <ion-icon class="fs-1" name="trash"></ion-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="confirm">
+            <table>
+                <h1>Book Summary</h1>
+                <tr>
+                    <th><b>Item SubToTal </b></th>
+                </tr>
+                <tr>
+                    <th style="text-align: center">
+                        &nbsp;Usd: $<span th:text="${sumBeforeTax}"></span>
+                    </th>
+                </tr>
+                <tr>
+                    <th><b>Estimated-ToTal (TAX:10%)</b></th>
+                </tr>
+                <tr>
+                    <th style="text-align: center">
+                        &nbsp;USD: $<span th:text="${sumBeforeTax*0.1+sumBeforeTax}"></span>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <a th:if="${list_SerCart.size()>0}" th:href="@{/show_checkout}" class="btn btn-danger">CheckOut</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<footer>
+    <a href="#items"><i class="fas fa-arrow-alt-circle-up"></i></a>
+</footer>
+<script>
+    function confirmDelete(id) {
+        document.getElementById(id).style.visibility = "hidden";
+    }
+
+    $(document).ready(function () {
+        $('.submit_on_enter').keydown(function (event) {
+            // enter has keyCode = 13, change it if you want to use another button
+            if (event.keyCode == 13) {
+                this.form.submit();
+                return false;
+            }
+        });
+    });
+
+    // change imgSlider
+    function imgSlider(anything) {
+        document.querySelector('.img-main').src = anything;
+    }
+</script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+
+</html>

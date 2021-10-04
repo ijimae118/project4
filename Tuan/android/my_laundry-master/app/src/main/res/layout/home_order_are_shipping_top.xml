@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:id="@+id/order_top"
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginEnd="@dimen/dp_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_home_order_item"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp_16"
+        android:paddingTop="@dimen/dp_16"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/order_top_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_4">
+            <TextView
+                android:id="@+id/order_top_address_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_15"
+                android:textColor="@color/green_8cc63e"
+                android:text="@string/delivery_address"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/order_top_delivery_address_content"
+                android:layout_width="@dimen/dp_150"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/order_top_address_heading"
+                android:textColor="@color/gray_807e7e"
+                android:textSize="@dimen/sp_10"
+                android:maxLines="3"
+                android:lines="3"
+                android:ellipsize="end"
+                tools:text="15 Hiclory Lane, Silver Spring.\nDC, Washington, 20904" />
+
+            <TextView
+                android:id="@+id/order_top_phonenumber_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/order_top_delivery_address_content"
+                android:text="@string/phone_number_customer"
+                android:textColor="@color/green_8cc63e"
+                android:textSize="@dimen/sp_10" />
+            <TextView
+                android:id="@+id/order_top_phonenumber_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_10"
+                android:layout_below="@+id/order_top_delivery_address_content"
+                android:layout_toEndOf="@+id/order_top_phonenumber_heading"
+                android:textColor="@color/gray_807e7e"
+                tools:text="0984622362"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/order_top_phonenumber_content"
+                android:layout_marginRight="@dimen/dp_16">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/status_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/status_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/delivering"
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:textColor="@color/blue_29aae3"
+                    android:textSize="@dimen/sp_8" />
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dp_24">
+
+            <TextView
+                android:id="@+id/order_top_call_button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_32"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/dp_4"
+                android:layout_marginEnd="@dimen/dp_4"
+                android:gravity="center"
+                android:background="@drawable/shaper_button_white"
+                android:text="@string/call"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_15"
+                android:textColor="@color/green_8cc63e" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/order_top_done_button"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_32"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/dp_4"
+                    android:layout_marginEnd="@dimen/dp_4"
+                    android:gravity="center"
+                    android:textSize="@dimen/sp_15"
+                    android:background="@drawable/shaper_button_green_big"
+                    android:text="@string/done"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/order_top_cancel_button"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_32"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/dp_4"
+                    android:layout_marginEnd="@dimen/dp_4"
+                    android:gravity="center"
+                    android:textSize="@dimen/sp_15"
+                    android:background="@drawable/shaper_button_green_big"
+                    android:text="@string/cancel"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

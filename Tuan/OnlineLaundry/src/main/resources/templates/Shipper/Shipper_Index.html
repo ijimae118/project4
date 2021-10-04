@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: html_head"/>
+
+<body>
+
+<div th:replace="fragments :: html_menu"/>
+
+<div class="cover">
+    <div id="show" class="show">
+        <div class="show-item">
+            <h2>Shippers</h2><br/>
+        </div>
+        <div class="show-item">
+            &ensp;<a class="btn btn-primary" th:href="@{/Shipper_New}">Add Shipper</a>
+        </div>
+        <div class="show-item table">
+            <table id="example" class="display table table-hover table-striped nowrap" style="width: 100%;">
+                <thead>
+                <tr class="text-light" style="background:#4d5bf9;">
+                    <th>Id</th>
+                    <th>Password</th>
+                    <th>Phone</th>
+                    <th>Salary <$></th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="sh : ${shipper}">
+                    <td th:text="${sh.getId()}"></td>
+                    <td><input class="form-control-plaintext" type="password" th:value="${sh.getPassword()}"/></td>
+                    <td th:text="${sh.getPhone()}"></td>
+                    <td th:text="${sh.getSalary()}"></td>
+                    <td th:text="${sh.getName()}"></td>
+                    <td>
+                        <img th:src="@{'images/shipers-link_image/'+${sh.getImage()}}" alt="image-users" width="150" height="150"/>
+                    </td>
+                    <td>
+                        <th:block th:switch="${sh.getStatus()}">
+                            <div th:case="0">
+                                Waiting
+                            </div>
+                            <div th:case="1">
+                                On Process
+                            </div>
+                            <div th:case="2">
+                                Finished
+                            </div>
+                            <div th:case="3">
+                                Cancelled
+                            </div>
+                            <div th:case="*">
+                                Waiting
+                            </div>
+                        </th:block>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-primary" th:href="@{'/Shipper_Edit/'+${sh.getId()}}">Edit</a>|
+                        <a class="btn btn-danger" th:if="${sh.getOrdersCollection().size()==0}" onclick="return confirm('Are you sure?')"
+                           th:href="@{'/Shipper_Delete?id='+${sh.getId()}}">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>Shipper-<span th:text="${shipper.size()}"/></th>
+                    <th>Password</th>
+                    <th>Phone</th>
+                    <th>Salary</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="show-item">
+
+        </div>
+    </div>
+    <div th:replace="fragments :: html_toggle"/>
+</div>
+
+<!--Javascript-->
+<div th:replace="fragments :: html_foot"/>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: html_head"/>
+
+<body>
+
+<div th:replace="fragments :: html_menu"/>
+
+<div class="cover">
+    <div class="show">
+        <div class="show-item table">
+            <h3>Update Admin</h3>
+            <form th:action="@{/Admin_Edit_Save}" th:object="${admin}" method="post">
+                <table>
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Id</td>
+                        <td><input class="form-control col-sm-10" th:type="text"  th:field="*{id}" readonly/></td>
+                        <td><span  style="color: red" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Password</td>
+                        <td><input class="form-control col-sm-10" th:type="text"  th:field="*{password}" required/></td>
+                        <td><span  style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Role</td>
+                        <td><input class="form-control col-sm-10" type="number" min="0" max="2"  th:field="*{role}" required/></td>
+                        <td><span  style="color: red" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></span></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Employee</td>
+                        <td>
+                            <select class="form-control col-sm-10" th:name="employee_id" >
+                                <option th:if="${admin.getEmployee_id() != null}" th:value="${admin.getEmployee_id().getId()}" th:text="${admin.getEmployee_id().getName2()}" selected></option>
+                                <option th:each="p : ${pays}" th:value="${p.getId()}" th:utext="${p.getName2()}"/>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <div class="row">
+                    <button class="btn btn-info bg-info col-sm-2" type="submit" style="width:fit-content;margin:10px">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div th:replace="fragments :: html_toggle"/>
+</div>
+
+<!--Javascript-->
+<div th:replace="fragments :: html_foot"/>
+</body>
+
+</html>

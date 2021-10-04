@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f5e94d99-df18-4b96-9295-9ef64f2ea14c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../../hk4/IASF/27-05-2021/BaiTap_27-05-2021/Nguyen_Nhuan_Phat_loginrole/.idea/Nguyen_Nhuan_Phat_loginrole.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../hk4/IASF/Lythuyet/BaiTap/Bai_Giai/KimDat/.idea/KimDat.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../hk4/IASF/Lythuyet/BaiTap/Bai_Giai/pretest_Nguyen_Doan_Dai/.idea/pretest_Nguyen_Doan_Dai.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk1/DM/BT_lop/A12.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk1/DM/BT_lop/d02_sample(Minh2_2).sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../hk1/DM/BT_lop/d02_sample(Minh2_2).sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk1/DM/assignment/as5.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk1/DM/assignment/pretest3.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/ADF-II_JAVA2/BT-sua-in-class/J2_as2/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../hk2/ADF-II_JAVA2/BT-sua-in-class/J2_as2/nbproject/private/private.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/ADF-I_JAVA1/d01_javaIntro/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../hk2/ADF-I_JAVA1/d01_javaIntro/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/ADF-I_JAVA1/d01_javaIntro/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../hk2/ADF-I_JAVA1/d01_javaIntro/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/ADF-I_JAVA1/d02_condition/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../hk2/ADF-I_JAVA1/d02_condition/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/ADF-I_JAVA1/java1_Pretest/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../hk2/ADF-I_JAVA1/java1_Pretest/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/css/bootstrap-theme.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d01/L01_DateTime.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d01/L01_date.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d01/L01_header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d01/L01_intro.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d02/L02_Generator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d02/L02_closure.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d02/L02_intdiv.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d02/L02_scalar.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d02/L02_scalar2.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d02/L02_scalar3.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d02/L02_spaceship.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d02/L02_uniform.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d03/L03_Login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d03/L03_Login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d03/L03_Personal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d03/L03_Personal.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d04/L04_ChangePassword.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d04/L04_ChangePassword.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d04/L04_Login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/d04/L04_Login_Process.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/js/jquery-3.4.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/js/npm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../hk2/WADP/demo/1910.M1/nbproject/project.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1yAM5cJrNEVk9tcxy1xFsqX0vJK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="RunManager" selected="Application.LaundryBackEndApplication">
+    <configuration name="LaundryBackEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.laundy.laundrybackend.LaundryBackEndApplication" />
+      <module name="LaundryBackEnd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.laundy.laundrybackend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LaundryBackEndApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="laundry_online_be-master" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.laundy.laundrybackend.LaundryBackEndApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.LaundryBackEndApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f5e94d99-df18-4b96-9295-9ef64f2ea14c" name="Changes" comment="" />
+      <created>1631689757792</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1631689757792</updated>
+      <workItem from="1631777067131" duration="190000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1631777255952">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1631777255952" />
+  </component>
+</project>

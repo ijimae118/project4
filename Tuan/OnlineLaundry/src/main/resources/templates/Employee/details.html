@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: html_head"/>
+
+<body>
+
+<div th:replace="fragments :: html_menu"/>
+
+<div class="cover">
+    <div class="show">
+        <div class="show-item table">
+            <h3 style="color: darkgreen">SALARY PAYROLL OF ABC_LAUNDRY COMPANY</h3>
+            <form th:object="${payslip}" method="post">
+                <div class="mx-auto" style="width: 450px; text-align:left">
+
+                    <div class="form-group">
+                        <label>EMPLOYEE ID</label>
+                        <input class="form-control has-error" th:type="text" th:field="*{id}" readonly/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>NAME</label>
+                        <input class="form-control" th:type="text" th:field="*{name2}" readonly/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>JOB POSITION</label>
+                        <input class="form-control" th:type="text" th:field="*{depart3}" readonly/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ATM ACCOUNT</label>
+                        <input class="form-control" th:type="text" th:field="*{atm4}" readonly/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>DATE SALARY TRANSFERRED TO ATM</label>
+                        <input class="form-control" th:type="date" th:field="*{salmonth5}" readonly/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>I- BASIC SALARY </label>
+                        <input class="form-control" th:type="number" min="0" th:value="${payslip.getBasissal13()}" readonly/>
+                    </div>
+
+                    <div class="form-group">
+                        <label> 1.1- Actual workdays</label>
+                        <input class="form-control" th:type="number" min="0" th:field="*{acworkday12}" readonly/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>1.2.2-Coefficient position allowance</label>
+                        <input class="form-control" th:type="number" min="0" th:field="*{coefposis8}" readonly/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>1.2.3-Liability factor</label>
+                        <input class="form-control" th:type="number" min="0" th:field="*{liabfac9}" readonly/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>III- TOTAL DEDUCTIONS</label>
+                        <input class="form-control" th:type="number" th:value="${payslip.getTotaldeductions26()}" readonly/>
+                    </div>
+
+                <div class="form-group">
+                    <label> IV - TOTAL RECEIVING</label>
+                    <input class="form-control" th:type="number" th:value="${payslip.getSumreceived27()}" readonly/>
+                </div>
+
+                <div class="form-group">
+                    <label>V- ADVANCES MONEY</label>
+                    <input class="form-control" th:type="number" th:field="*{advances}" readonly/>
+                </div>
+
+                <div class="form-group">
+                    <label>VI - AMOUNT TRANSFER TO ATM</label>
+                    <input class="form-control" th:type="number" th:value="${payslip.getTransatm28()}" readonly/>
+                </div>
+
+        </div>
+        </form>
+    </div>
+</div>
+<div th:replace="fragments :: html_toggle"/>
+</div>
+
+<div th:replace="fragments :: html_foot"/>
+</body>
+
+</html>

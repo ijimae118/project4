@@ -1,0 +1,274 @@
+<html lang="en" class="csstransforms csstransforms3d csstransitions" style="height: auto;"><head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-143388487-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-143388487-1');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LaundryOnline</title>
+
+    <!--Link Bootstrap-->
+    <link rel="stylesheet" th:href="@{css/selfService.css}">
+
+    <!-- Favicons
+        ================================================== -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="favicons/manifest.json">
+    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+    <!-- Stylesheet
+        ================================================== -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top on">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <a th:href="@{/home}" style="color: aliceblue; text-decoration: none" >
+                <h1><b style="color: #0dcaf0;">A</b>BC</h1>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a th:href="@{/show_product#prices}" class="page-scroll">Back</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header
+     banner. photo on css  -->
+
+<header id="header">
+    <div class="intro">
+        <div class="overlay">
+            <div class="container">
+                <div class="row">
+
+                    <div class="intro-text">
+                        <br><br><br><br><br><br>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div></header>
+
+<!-- Ironing Service Price List Section -->
+
+<div id="service">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="menu-section">
+                    <h2 class="menu-section-title"> Ironing Service with Wash</h2>
+                    <hr style="height: 2px">
+                    <div class="menu-item">
+                        <div class="menu-item-name">5 Shirts Special </div>
+                        <div class="menu-item-price"> $11.00</div>
+                        <div class="menu-item-description"> Wash &amp; Iron </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Shirt </div>
+                        <div class="menu-item-price"> $2.70 </div>
+                        <div class="menu-item-description"> Wash &amp; Iron </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name">Trousers Crease </div>
+                        <div class="menu-item-price"> $5.00</div>
+                        <div class="menu-item-description"> Wash &amp; Iron </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Jeans</div>
+                        <div class="menu-item-price"> $4.00</div>
+                        <div class="menu-item-description"> Wash &amp; Iron </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Shorts</div>
+                        <div class="menu-item-price"> $4.50</div>
+                        <div class="menu-item-description"> Wash &amp; Iron </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Skirt </div>
+                        <div class="menu-item-price"> $3.70</div>
+                        <div class="menu-item-description"> Wash &amp; Iron </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Skirt Pleated </div>
+                        <div class="menu-item-price"> $6.00</div>
+                        <div class="menu-item-description"> Wash &amp; Iron </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Dress Short</div>
+                        <div class="menu-item-price"> $8.50</div>
+                        <div class="menu-item-description"> Wash &amp; Iron </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Dress Long </div>
+                        <div class="menu-item-price"> $9.50</div>
+                        <div class="menu-item-description"> Wash &amp; Iron </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Tops/ T-shirts </div>
+                        <div class="menu-item-price"> $2.70</div>
+                        <div class="menu-item-description"> Wash &amp; Iron</div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Pyjama Sets</div>
+                        <div class="menu-item-price"> $5.00</div>
+                        <div class="menu-item-description"> Wash &amp; Iron </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Jacket </div>
+                        <div class="menu-item-price"> $5.00</div>
+                        <div class="menu-item-description"> Wash &amp; Iron </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Apron </div>
+                        <div class="menu-item-price"> $1.50</div>
+                        <div class="menu-item-description"> Wash &amp; Iron </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="menu-section">
+                    <h2 class="menu-section-title">Ironing Service - Iron Only  </h2>
+                    <hr style="height: 2px">
+                    <div class="menu-item">
+                        <div class="menu-item-name"> 10 Shirt Special (Iron Only)</div>
+                        <div class="menu-item-price"> $18.00</div>
+                        <div class="menu-item-description"> Iron Only </div>
+                    </div>
+
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Pillow Case </div>
+                        <div class="menu-item-price"> $1.00</div>
+                        <div class="menu-item-description">Iron Only </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Single Flat Sheet </div>
+                        <div class="menu-item-price"> $2.75</div>
+                        <div class="menu-item-description">Iron Only </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Single Fitted Sheet </div>
+                        <div class="menu-item-price"> $3.30</div>
+                        <div class="menu-item-description">Iron Only </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Single Duvet Cover </div>
+                        <div class="menu-item-price"> $3.85</div>
+                        <div class="menu-item-description">Iron Only </div>
+                    </div>
+
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Double Flat Sheet</div>
+                        <div class="menu-item-price"> $3.30</div>
+                        <div class="menu-item-description">Iron Only </div>
+                    </div>
+
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Double Fitted Sheet </div>
+                        <div class="menu-item-price"> $3.85</div>
+                        <div class="menu-item-description">Iron Only </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Double Duvet Cover </div>
+                        <div class="menu-item-price"> $4.95</div>
+                        <div class="menu-item-description">Iron Only </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> King Flat Sheet </div>
+                        <div class="menu-item-price"> $4.40</div>
+                        <div class="menu-item-description">Iron Only </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> King Fitted Sheet </div>
+                        <div class="menu-item-price"> $4.95</div>
+                        <div class="menu-item-description">Iron Only </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> King Duvet Cover </div>
+                        <div class="menu-item-price"> $5.50</div>
+                        <div class="menu-item-description">Iron Only </div>
+                    </div>
+
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Shirt </div>
+                        <div class="menu-item-price"> $2.00</div>
+                        <div class="menu-item-description"> Iron Only </div>
+                    </div>
+
+
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Trousers Crease </div>
+                        <div class="menu-item-price"> $3.30</div>
+                        <div class="menu-item-description"> Iron Only </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/SmoothScroll.js"></script>
+<script type="text/javascript" src="js/nivo-lightbox.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.js"></script>
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="js/contact_me.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+</body></html>

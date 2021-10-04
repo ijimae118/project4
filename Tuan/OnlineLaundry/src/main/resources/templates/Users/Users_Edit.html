@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: html_head"/>
+
+<body>
+
+<div th:replace="fragments :: html_menu"/>
+
+<div class="cover">
+    <div class="show">
+        <div class="show-item table">
+            <h3>Update Users</h3>
+            <form th:action="@{/Users_Edit_Save}" th:object="${users}" method="post" enctype="multipart/form-data">
+                <table>
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Email</td>
+                        <td><input class="form-control col-sm-10" th:type="text"  th:field="*{email}" readonly/></td>
+                        <td><span  style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Password</td>
+                        <td><input class="form-control col-sm-10" th:type="text"  th:field="*{password}" required/></td>
+                        <td><span  style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Full_Name</td>
+                        <td><input class="form-control col-sm-10" th:type="text"  th:field="*{full_name}" required/></td>
+                        <td><span  style="color: red" th:if="${#fields.hasErrors('full_name')}" th:errors="*{full_name}"></span></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Image</td>
+                        <td><input class="form-control col-sm-10" type="file" name="fileImage" id="fileImage" accept="image/*" required/></td>
+                    </tr>
+<!--                    <tr class="row">-->
+<!--                        <td class="form-label col-sm-2">Image</td>-->
+<!--                        <td><input class="form-control col-sm-10" th:type="text"  th:field="*{link_image}" /></td>-->
+<!--                        <td><span  style="color: red" th:if="${#fields.hasErrors('link_image')}" th:errors="*{link_image}"></span></td>-->
+<!--                    </tr>-->
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Phone</td>
+                        <td><input class="form-control col-sm-10" th:type="text"  th:field="*{phone}" pattern="^\d{10,}$" required/></td>
+                        <td><span  style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Address</td>
+                        <td><input class="form-control col-sm-10" th:type="text"  th:field="*{address}" required/></td>
+                        <td><span  style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span></td>
+                    </tr>
+                </table>
+                <div class="row">
+                    <button class="btn btn-info bg-info col-sm-2" type="submit" style="width:fit-content;margin:10px">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div th:replace="fragments :: html_toggle"/>
+</div>
+
+<!--Javascript-->
+<div th:replace="fragments :: html_foot"/>
+</body>
+
+</html>

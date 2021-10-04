@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="html_head">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Table -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+</head>
+
+<body>
+
+<div th:fragment="html_menu" class="navigation">
+    <ul>
+        <li class="list active">
+            <b></b>
+            <b></b>
+            <a id="Admin_Index" th:href="@{/Admin_Index}">
+                    <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                <span class="title">Admin</span>
+            </a>
+        </li>
+        <li class="list">
+            <b></b>
+            <b></b>
+            <a id="Services_Index" th:href="@{/Services_Index}">
+                    <span class="icon">
+                        <ion-icon name="apps-outline"></ion-icon>
+                    </span>
+                <span class="title">Services</span>
+            </a>
+        </li>
+        <li class="list">
+            <b></b>
+            <b></b>
+            <a th:href="@{/Shipper_Index}">
+                    <span class="icon">
+                        <ion-icon name="accessibility-outline"></ion-icon>
+                    </span>
+                <span class="title">Shipper</span>
+            </a>
+        </li>
+        <li class="list">
+            <b></b>
+            <b></b>
+            <a th:href="@{/Users_Index}">
+                    <span class="icon">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </span>
+                <span class="title">Users</span>
+            </a>
+        </li>
+        <li class="list">
+            <b></b>
+            <b></b>
+            <a th:href="@{/Orders_Index}">
+                    <span class="icon">
+                        <ion-icon name="basket-outline"></ion-icon>
+                    </span>
+                <span class="title">Orders</span>
+            </a>
+        </li>
+        <li class="list">
+            <b></b>
+            <b></b>
+            <a th:href="@{/Order_detail_Index}">
+                    <span class="icon">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                    </span>
+                <span class="title">Oder_detail</span>
+            </a>
+        </li>
+        <li class="list">
+            <b></b>
+            <b></b>
+            <a th:href="@{#}">
+                    <span class="icon">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </span>
+                <span class="title">
+                    <form
+                            action="https://www.google.nl/search?q=google+search+bar"
+                            className="searchform"
+                            method="get"
+                            name="searchform"
+                            target="_blank"
+                    >
+                    <input
+                            autoComplete="on"
+                            name="q"
+                            placeholder="Google Search Support ..."
+                            required="required"
+                            type="text"
+                            style="width: 100%;height: 50px;padding: 0"
+                    />
+                    </form>
+                </span>
+            </a>
+        </li>
+        <li class="list">
+            <b></b>
+            <b></b>
+            <a th:href="@{#}">
+                    <span class="icon">
+                          <ion-icon name="logo-google"></ion-icon>
+                    </span>
+                <span class="title">
+                    <div class="btn btn-outline-danger" style="margin: 0 auto;padding: 0;"
+                         id="google_translate_element"></div>
+                </span>
+            </a>
+        </li>
+        <li class="list">
+            <a th:href="@{/payslip}">
+                    <span class="icon">
+                       <ion-icon name="person-add"></ion-icon>
+                    </span>
+                <span class="title">Employee</span>
+            </a>
+        </li>
+        <li class="list">
+            <a th:href="@{/home}">
+                    <span class="icon">
+                       <ion-icon name="globe"></ion-icon>
+                    </span>
+                <span class="title">My Web</span>
+            </a>
+        </li>
+        <li class="list">
+            <a onclick="return confirm('Exit?')" th:href="@{/signout}">
+                    <span class="icon">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </span>
+                <span class="title">Sign Out</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="cover">
+    <div class="show">
+        <div class="show-item">
+            <h2>Admin</h2>
+        </div>
+        <div class="show-item table">
+            <table id="example" class="display table table-hover table-striped nowrap" style="width: 100%;">
+                <thead>
+                <tr class="text-light" style="background:#4d5bf9;">
+                    <th>Id</th>
+                    <th>Password</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--                <tr th:each="ad : ${admin}">-->
+                <!--                    <td th:text="${ad.getId()}"></td>-->
+                <!--                    <td><input type="password" th:value="${ad.getPassword()}"/></td>-->
+                <!--                    <td>-->
+                <!--                        <a class="btn btn-outline-primary" th:href="@{#}">Edit</a>|-->
+                <!--                        <a class="btn btn-danger" onclick="return confirm('Are you sure?')" th:href="@{#}">Delete</a>-->
+                <!--                    </td>-->
+                <!--                </tr>-->
+                </tbody>
+                <tfoot>
+                <tr>
+                    <!--                    <th>Admin-<span th:text="${admin.size()}"/></th>-->
+                    <th>PASSWORD</th>
+                    <th>Action</th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="show-item">
+
+        </div>
+    </div>
+    <div th:fragment="html_toggle" class="toggle">
+        <ion-icon name="grid-outline" class="open"></ion-icon>
+        <ion-icon name="close-outline" class="close"></ion-icon>
+    </div>
+</div>
+
+<!--Javascript-->
+<div th:fragment="html_foot">
+    <!--G_st-->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!--Table-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(document).ready(function () {
+                var table = $('#example').DataTable({
+                    rowReorder: {
+                        selector: 'td:nth-child(2)'
+                    },
+                    responsive: true
+                });
+            });
+        });
+    </script>
+<!--    Navigation- -->
+<!--    <script>-->
+<!--        $(document).ready(function(){-->
+<!--            $("#Admin_Index").click(function(){-->
+<!--                $("#show").load("http://localhost:8080/Admin_Index #show");-->
+<!--            });-->
+<!--            $("#Services_Index").click(function(){-->
+<!--                $("#show").load("http://localhost:8080/Services_Index #show");-->
+<!--            });-->
+<!--            $("#Shipper_Index").click(function(){-->
+<!--                $("#show").load("http://localhost:8080/Shipper_Index #show");-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+    <!--ionicons-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!----->
+    <script>
+        let menuToggle = document.querySelector('.toggle');
+        let navigation = document.querySelector('.navigation');
+        let cover = document.querySelector('.cover');
+        menuToggle.onclick = function () {
+            menuToggle.classList.toggle("active");
+            navigation.classList.toggle("active");
+            cover.classList.toggle("active");
+        }
+        //add active class in list item
+        let list = document.querySelectorAll('.list');
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function () {
+                let j = 0;
+                while (j < list.length) {
+                    list[j++].className = 'list';
+                }
+                list[i].className = 'list active';
+            }
+        }
+    </script>
+</div>
+
+</body>
+
+</html>
