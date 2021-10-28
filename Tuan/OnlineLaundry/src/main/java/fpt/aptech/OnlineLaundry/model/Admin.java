@@ -19,8 +19,8 @@ public class Admin implements Serializable {
 
     private int role;
 
-    @JoinColumn(name = "employee_id", referencedColumnName = "id")
     @ManyToOne
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Tbpayslip employee_id;
 
     public Admin() {
