@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/*border && padding not effect to width*/
+    font-family: 'Poppins', sans-serif;
+}
+section{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+/* background */
+.bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fc4a55;
+    transition: 0.5s; /*t/g thay doi mau nen*/
+}
+.bg::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.1);
+}
+.bg::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(255, 255, 255,0.5);
+    clip-path: circle(600px at right 800px);
+}
+/* header navbar */
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo{
+    position: relative;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2em;
+}
+header .navigation{
+    position: relative;
+    display: flex;
+}
+header .navigation li{
+    list-style: none;
+}
+header .navigation li a{
+    display: inline-block;
+    color: #fff;
+    font-weight: 400;
+    margin-left: 10px;
+    padding: 8px 15px;
+    border-radius: 40px;
+    text-decoration: none;
+}
+header .navigation li a.select,
+header .navigation li a:hover
+{
+    background-color: #fff;
+    color: #333;
+}
+/* content */
+.content{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.content .textbox{
+    position: relative;
+    max-width: 600px;
+}
+.content .textbox h2{
+    font-weight:700;
+    font-size: 4em;
+    line-height: 1.2em;
+    color: #fff;
+}
+.content .textbox p{
+    color: #fff;
+    margin-top: 20px;
+}
+.content .textbox a{
+    color: #333;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 15px;
+    font-weight: 500;
+    background: #fff;
+    border-radius: 40px;
+    letter-spacing: 1;
+    text-decoration: none;
+}
+.content .imgbox{
+    position: relative;
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.content .imgbox img{
+    max-width: 450px;
+    filter: drop-shadow(8px 8px 10px rgb(190, 190, 190));
+}
+.thumb{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    display: flex;
+}
+.thumb li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    height: 70px;
+    background: rgba(255, 255, 255,0.1);
+    padding: 5px;
+    border: 2px solid rgba(255, 255, 255,0.25);
+}
+.thumb li.active{
+    border: 2px solid rgba(255, 255, 255,1);
+}
+.thumb li::before{
+    content: attr(data-set);
+    position: absolute;
+    top: -200px;
+    left: -100px;
+    white-space: nowrap; /*ko xuong dong*/
+    font-size: 8em;
+    color: rgba(255, 255, 255,0.2);
+    opacity: 0; /*do mo*/
+    font-weight: 700;
+    pointer-events: none; /*xu kien click ko hoat dong*/
+}
+.thumb li.active::before{
+    opacity: 1;
+}
+.thumb li img{
+    max-width: 60px;
+}
+/*Menu Social*/
+.sci{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.sci li{
+    list-style: none;
+}
+.sci li a{
+    display: inline-block;
+    margin: 5px 0;
+    transform: scale(0.6);
+    filter: invert(1);
+}
+/*Responsive*/
+@media screen and (max-width: 998px)
+{
+    /*background*/
+    .bg::before{
+        display: none;
+    }
+    .bg::after{
+        clip-path: circle(60% at top);
+    }
+    /*header*/
+    header{
+        padding: 20px;
+    }
+    header .navigation{
+        display: none;
+    }
+    header .navigation.select{
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0,0,0,1);
+        flex-direction: column;
+        z-index: 10;
+    }
+    header .navigation li a{
+        font-size: 1.2em;
+        margin: 5px 0;
+    }
+    header .toggle{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background: url(/images/imageshome/menu.png);
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 1000;
+    }
+    header .toggle.select{
+        position: fixed;
+        right: 30px;
+        width: 20px;
+        height: 30px;
+        cursor: pointer;
+        background: url(/images/imageshome/close.png);
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 1000;
+    }
+    /*boder*/
+    section{
+        padding: 20px;
+        padding-bottom: 120px;
+    }
+    /*content*/
+    .content{
+        margin-top: 120px;
+        flex-direction: column;
+    }
+    /*content item1*/
+    .content .textbox{
+        max-width: 100%;
+    }
+    .content .textbox h2{
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+    /*content item2*/
+    .content .imgbox{
+        max-width: 100%;
+        height: 424;
+        justify-content: center;
+    } 
+    .content .imgbox img{
+        max-width: 320px;
+    }
+    /*thumbnails bottom*/
+    .thumb li{
+        margin: 0 3px;
+        height: 66px;
+    }
+    .thumb li img{
+        max-width:50px;
+    }
+    .thumb li::before{
+        position: absolute;
+        top: -140px;
+        left: 0;
+        color: rgba(255, 255, 255,0.5);
+        filter: invert(1);
+        font-size: 4em;
+    }
+    /*right social media side*/ 
+    .sci{
+        background: rgba(0,0,0,0.1);
+        right: 0;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+}

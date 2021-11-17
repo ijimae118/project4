@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: html_head"/>
+
+<body>
+
+<div th:replace="fragments :: html_menu"/>
+
+<div class="cover">
+    <div id="show" class="show">
+        <div class="show-item">
+            <h2>Services</h2><br/>
+        </div>
+        <div class="show-item">
+            &ensp;<a class="btn btn-primary" th:href="@{/Services_New}">Add Service</a>
+        </div>
+        <div class="show-item table">
+            <table id="example" class="display table table-hover table-striped nowrap" style="width: 100%;">
+                <thead>
+                <tr class="text-light" style="background:#4d5bf9;">
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Price <$></th>
+                    <th>Type</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="se : ${services}">
+                    <td th:text="${se.getId()}"></td>
+                    <td th:text="${se.getName()}"></td>
+                    <td th:text="${se.getPrice()}"></td>
+                    <td th:text="${se.getType()}"></td>
+                    <td>
+                        <img th:src="@{${se.getServiceImagePath()}}" alt="image-services" width="150" height="150"/>
+                    </td>
+                    <td th:text="${se.getDescription()}"></td>
+                    <td>
+                        <a class="btn btn-outline-primary" th:href="@{'/Services_Edit/'+${se.getId()}}">Edit</a><!--|
+                        <a class="btn btn-danger" onclick="return confirm('Are you sure?')"
+                           th:href="@{'/Services_Delete/'+${se.getId()}}">Delete</a>-->
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>Services-<span th:text="${services.size()}"/></th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Type</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="show-item">
+
+        </div>
+    </div>
+    <div th:replace="fragments :: html_toggle"/>
+</div>
+
+<!--Javascript-->
+<div th:replace="fragments :: html_foot"/>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.Laundry" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimary">@color/green_8cc63e</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">@color/green_8cc63e</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/green_8cc63e</item>
+        <item name="colorPrimaryDark">@color/green_8cc63e</item>
+        <item name="colorAccent">@color/green_8cc63e</item>
+    </style>
+
+    <!-- shadow -->
+    <style name="shadow_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">4dp</item>
+        <item name="android:background">@drawable/shape_background_shadow</item>
+    </style>
+
+    <style name="progressbar_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/alpha_gray</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="line_straight_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:background">@color/gray_a4a4a4</item>
+    </style>
+
+    <style name="account_infomation_item_title_style">
+        <item name="android:layout_width">@dimen/dp_320</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/sp_13</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginStart">@dimen/dp_6</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+</resources>

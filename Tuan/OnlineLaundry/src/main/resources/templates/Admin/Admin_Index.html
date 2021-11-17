@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: html_head"/>
+
+<body>
+
+<div th:replace="fragments :: html_menu"/>
+
+<div class="cover">
+    <div id="show" class="show">
+        <div class="show-item">
+            <h2>Admin</h2>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                            <span class="accessibility-outline">
+                              <ion-icon name="logo-github"></ion-icon>
+                            </span> Employee Report
+                    </div>
+                    <div class="panel-body">
+                        <div style="display: none">
+                            <a onclick="return confirm('Are you sure?')" th:href="@{/EmployeeReports/html}">Html</a>-
+                            <a onclick="return confirm('Are you sure?')" th:href="@{/EmployeeReports/pdf}">Pdf</a>
+                        </div>
+                        <div>
+                            <a th:href="@{/EmployeeReport}">Pdf</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                            <span class="icon">
+                                <ion-icon name="accessibility-outline"></ion-icon>
+                            </span> Shippers Report
+                    </div>
+                    <div class="panel-body">
+                        <div style="display: none">
+                            <a onclick="return confirm('Are you sure?')" th:href="@{/reportShippers/html}">Html</a>-
+                            <a onclick="return confirm('Are you sure?')" th:href="@{/reportShippers/pdf}">Pdf</a>
+                        </div>
+                        <div>
+                            <a th:href="@{/reportShipper}">Pdf</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                            <span class="icon">
+                                <ion-icon name="receipt-outline"></ion-icon>
+                            </span> Orders Report
+                    </div>
+                    <div class="panel-body">
+                        <div style="display: none">
+                            <a onclick="return confirm('Are you sure?')" th:href="@{/reportShippers/html}">Html</a>-
+                            <a onclick="return confirm('Are you sure?')" th:href="@{/reportShippers/pdf}">Pdf</a>
+                        </div>
+                        <div>
+                            <a th:href="@{/reportOrders}" target="_blank">Pdf</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                            <span class="icon">
+                                <ion-icon name="people-outline"></ion-icon>
+                            </span> Users Report
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            Register:
+                            <a onclick="return confirm('Are you sure?')"
+                               th:href="@{/reportUsersRegister/html}">Html</a>-
+                            <a onclick="return confirm('Are you sure?')"
+                               th:href="@{/reportUsersRegister/pdf}">Pdf</a>
+                        </div>
+                        <!--                        <div>-->
+                        <!--                            Status :-->
+                        <!--                            <a onclick="return confirm('Are you sure?')"-->
+                        <!--                               th:href="@{/reportUsersStatus/html}">Html</a>- -->
+                        <!--                            <a onclick="return confirm('Are you sure?')" th:href="@{/reportUsersStatus/pdf}">Pdf</a>-->
+                        <!--                        </div>-->
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                </div>
+            </div>
+        </div>
+        <div class="show-item">
+            &ensp;<a class="btn btn-primary" th:href="@{/Admin_New}">Add</a>
+        </div>
+        <div class="show-item table">
+            <table id="example" class="display table table-hover table-striped nowrap" style="width: 100%;">
+                <thead>
+                <tr class="text-light" style="background:#4d5bf9;">
+                    <th>Id</th>
+                    <th>Password</th>
+                    <th>Role</th>
+                    <th>Employee</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="ad : ${admin}">
+                    <td th:text="${ad.getId()}"></td>
+                    <td><input class="form-control-plaintext" type="password" th:value="${ad.getPassword()}"/></td>
+                    <td>
+                        <th:block th:switch="${ad.getRole()}">
+                            <div th:case="0">
+                                Employee
+                            </div>
+                            <div th:case="1">
+                                Staff
+                            </div>
+                            <div th:case="2">
+                                Admin
+                            </div>
+                        </th:block>
+                    </td>
+                    <td th:text="${ad.getEmployee_id()!=null?ad.getEmployee_id().getName2():''}"></td>
+                    <td>
+                        <a class="btn btn-outline-primary" th:href="@{'/Admin_Edit/'+${ad.getId()}}">Edit</a>
+                        <a class="btn btn-danger" th:if="${ad.getEmployee_id()==null}" onclick="return confirm('Are you sure?')"
+                           th:href="@{'/Admin_Delete?id='+${ad.getId()}}">| Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>Admin-<span th:text="${admin.size()}"/></th>
+                    <th>Password</th>
+                    <th>Role</th>
+                    <th>Employee</th>
+                    <th>Action</th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="show-item row" style="width: 100%">
+            <iframe th:src="@{/Admin_ConnectLineChart}" frameborder="0" style="height: 700px;"></iframe>
+        </div>
+    </div>
+    <div th:replace="fragments :: html_toggle"/>
+</div>
+
+<!--Javascript-->
+<div th:replace="fragments :: html_foot"/>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: html_head"/>
+
+<body>
+
+<div th:replace="fragments :: html_menu"/>
+
+<div class="cover">
+    <div class="show">
+        <div class="show-item table">
+            <h3>Update Order Details</h3>
+            <form th:action="@{'/Order_detail_Edit_Save'}" th:object="${order_detail}" method="post">
+                <table>
+                    <tr class="row">
+                        <label for="id" class="form-label col-sm-2" style="display: none">Id</label>
+                        <input type="text" class="form-control col-sm-10" id="id" th:name="id" th:value="${order_detail.getId()}" style="display: none" readonly/>
+                        <label for="status" class="form-label col-sm-2">Shipper</label>
+                        <select class="form-control form-select-button" th:name="shipper_id" id="status">
+                            <option th:each="s : ${shipper}" th:value="${s.getId()}" th:text="${s.getId()}"></option>
+                        </select>
+                    </tr>
+                </table>
+                <div class="row">
+                    <button class="btn btn-info bg-info col-sm-2" type="submit" style="width:fit-content;margin:10px">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div th:replace="fragments :: html_toggle"/>
+</div>
+
+<!--Javascript-->
+<div th:replace="fragments :: html_foot"/>
+</body>
+
+</html>

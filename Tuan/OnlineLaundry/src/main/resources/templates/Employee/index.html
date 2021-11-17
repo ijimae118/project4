@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: html_head"/>
+
+<body>
+
+<div th:replace="fragments :: html_menu"/>
+
+<div class="cover">
+    <div id="show" class="show">
+        <div class="show-item">
+            <h2 style="color: darkgreen">EMPLOYEE SALARY PAYSLIP MANAGEMENT</h2><br/>
+        </div>
+        <div class="show-item">
+            &ensp;<a class="btn btn-primary" th:href="@{/payslip/create}">Create new Payslip</a>
+        </div>
+        <div class="show-item table">
+            <table id="example" class="display table table-hover table-striped nowrap" style="width: 100%;">
+                <thead>
+                <tr class="text-light" style="background:#4d5bf9;">
+                    <th>Id</th>
+                    <th>Action</th>
+                    <th>Name</th>
+                    <th>Jop position</th>
+                    <th>ATM account</th>
+                    <th>Date salary transferred to ATM</th>
+                    <th>Coefficient position</th>
+                    <th>Liability factor</th>
+                    <th>Actual workdays</th>
+                    <th>Basic Salary</th>
+                    <th>Total Incomes</th>
+                    <th>Total deductions</th>
+                    <th>Advance money</th>
+                    <th>Amount transferred to ATM</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="e : ${payslip}">
+                    <td th:text="${e.getId()}"></td>
+                    <td>
+                        <a class="btn btn-outline-primary" th:href="@{'/payslip/report/'+${e.getId()}}">Report</a>|
+                        <a class="btn btn-outline-primary" th:href="@{'/payslip/view/'+${e.getId()}}">Details</a>|
+                        <a class="btn btn-outline-primary" th:href="@{'/payslip/edit/'+${e.getId()}}">Edit</a>|
+                        <!--                        <a class="btn btn-outline-danger" onclick="return confirm('Are you sure? ' +-->
+                        <!--                         'Did you delete the role in admin? ' +-->
+                        <!--                         'Has there been a decision made by the organization?')"-->
+                        <!--                           th:href="@{'/payslip/delete/' + ${e.getId()}}">Delete</a>-->
+                    </td>
+                    <td th:text="${e.getName2()}"></td>
+                    <td th:text="${e.getDepart3()}"></td>
+                    <td th:text="${e.getAtm4()}"></td>
+                    <td th:text="${e.getSaleMonth5ToString()}"></td>
+                    <td th:text="${e.getCoefposis8()}"></td>
+                    <td th:text="${e.getLiabfac9()}"></td>
+                    <td th:text="${e.getAcworkday12()}"></td>
+                    <td>
+                        [[${#numbers.formatDecimal(e.getBasissal13(), 0, 'COMMA', 2, 'POINT')}]]
+                    </td>
+                    <td>
+                        [[${#numbers.formatDecimal(e.getTotalincome21(), 0, 'COMMA', 2, 'POINT')}]]
+                    </td>
+                    <td>
+                        [[${#numbers.formatDecimal(e.getTotaldeductions26(), 0, 'COMMA', 2, 'POINT')}]]
+                    </td>
+                    <td>
+                        [[${#numbers.formatDecimal(e.getAdvances(), 0, 'COMMA', 2, 'POINT')}]]
+                    </td>
+                    <td>
+                        [[${#numbers.formatDecimal(e.getTransatm28(), 0, 'COMMA', 2, 'POINT')}]]
+                    </td>
+                </tr>
+                </tbody>
+
+                <tfoot>
+                <tr>
+                    <th style="color: darkgreen" colspan="7">Total number of employees receiving this month salary of
+                        ABC Laundry_Company: <span th:text="${payslip.size()}"/></th>
+
+                    <th colspan="18"></th>
+
+                    <th style="color: red">TotalC:
+                        <span>[[${#numbers.formatDecimal(totalc, 0, 'COMMA', 2, 'POINT')}]]</span></th>
+                    <th colspan="3"></th>
+                </tr>
+                <tr>
+                    <th style="color: red">Economic performance in the month: <span>[[${#numbers.formatDecimal(hq, 0, 'COMMA', 2, 'POINT')}]]</span>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                    <th style="color: darkgreen">Profit before tax (VNĐ):</th>
+                    </td>
+                    <td>
+                    <th style="color: darkgreen"><span>[[${#numbers.formatDecimal(hq, 0, 'COMMA', 2, 'POINT')}]]</span>
+                    </th>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="color: darkgreen">BISSINESS RESULTS:</th>
+                    <th><span th:text="${hq > 0 ? 'Profit' : (hq == 0 ? 'Break even' : 'Losses')}"></span></th>
+                </tr>
+                <tr>
+                    <td>
+                    <th style="color: darkgreen">BISSINESS RESULTS BY RATE [ %] :</th>
+                    </td>
+                    <td>
+                    <th style="color: darkgreen"><span th:text="${tylephantram}"></span></th>
+                    <th style="color: crimson"><span
+                            th:text="${hq > 0 ? '[%] Profitable business month' : (hq == 0 ? 'BREAK EVEN' : '[%] Loss of business month')}">
+                </span></th>
+                    </td>
+                </tr>
+                </tfoot>
+
+            </table>
+        </div>
+        <div class="show-item">
+        </div>
+    </div>
+    <div th:replace="fragments :: html_toggle"/>
+</div>
+<!--Javascript-->
+
+<div th:replace="fragments :: html_foot"/>
+</body>
+</html>

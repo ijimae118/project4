@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{css/index.css}">
+</head>
+
+<body>
+<canvas id="c"></canvas>
+<div class="container">
+    <div class="header">
+        <a href="/home" class="logo">ABC Launry</a>
+        <div class="toggle"></div>
+        <ul class="navigation">
+            <li><a th:href="@{/home}" class="select">Home</a></li>
+            <li><a href="#company">Company</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#login">Login</a></li>
+        </ul>
+    </div>
+    <div class="bodier">
+        <div id="login" class="login">
+
+            <h2>Login</h2><br />
+            <h3>New user?<a href="#register"><sub>Create new account now</sub></a></h3><br />
+            <form action="/Login_Client" method="post">
+                <input type="email" placeholder="Email..."  th:name="email" required/>
+                <input type="password" placeholder="Password..." th:name="password" required/><br /><br />
+                <input type="submit" value="Submit">
+                <h3 th:if="${valid}" th:text="${valid}"></h3>
+            </form>
+            <!--                User Name or Password is invalid-->
+        </div>
+        <div id="register" class="register">
+            <div class="signup">
+                <h2>Sign Up</h2><br />
+                <form th:action="@{/Register_Save}" th:object="${users}" method="post" enctype="multipart/form-data">
+                    <div class="signup-on">
+                        <div class="sign_up">
+                            <div>
+                                <p style="font-size: 20px; font-weight: bold"><img th:src="@{images/imagesclient/LaundryIcon/laundry_washing_machine.png}" /> Email:</p>
+                                <input type="email" name="email" placeholder="Daniel123@gmail.com" th:field="*{email}" required/>
+                                <span  style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                            </div>
+                            <div>
+                                <p style="font-size: 20px; font-weight: bold"><img th:src="@{images/imagesclient/LaundryIcon/clothes_basket.png}" /> Password:</p>
+                                <input  th:type="password"  th:field="*{password}" required name="password" placeholder="123..."/>
+                                <span  style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                            </div>
+                            <div>
+                                <p style="font-size: 20px; font-weight: bold"><img th:src="@{images/imagesclient/LaundryIcon/clean_suit.png}" /> Full Name:</p>
+                                <input th:type="text"  th:field="*{full_name}" required name="full_name" placeholder="Daniel Radcliffe" />
+                                <span  style="color: red" th:if="${#fields.hasErrors('full_name')}" th:errors="*{full_name}"></span>
+                            </div>
+                        </div>
+                        <div class="sign_up">
+                            <!--                                <div style="display: none">-->
+                            <!--                                    <p><img th:src="@{images/imagesclient/fruits/pear.png}" /> Link_Image:</p>-->
+                            <!--&lt;!&ndash;                                    th:field="*{link_image}"&ndash;&gt;-->
+                            <!--                                    <input th:type="text" th:name="link_image"  th:value="user.png" name="link_image"/>-->
+                            <!--                                    <span  style="color: red" th:if="${#fields.hasErrors('link_image')}" th:errors="*{link_image}"></span>-->
+                            <!--                                </div>-->
+                            <div>
+                                <p style="font-size: 20px; font-weight: bold"><img th:src="@{images/imagesclient/LaundryIcon/liquid_fabric.png}" />Image:</p>
+                                <input type="file" name="fileImage" id="fileImage" accept="image/*" value="null" required/>
+                            </div>
+                            <div>
+                                <p style="font-size: 20px; font-weight: bold"><img th:src="@{images/imagesclient/LaundryIcon/iron_washing_housework.png}" /> Phone number:</p>
+                                <input th:type="text"  th:field="*{phone}" pattern="^\d{10,}$" required name="phone" placeholder="0989..." />
+                                <span  style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sign-bottom">
+                        <div style="margin: 0 2px;">
+                            <p style="font-size: 20px; font-weight: bold"><img th:src="@{images/imagesclient/LaundryIcon/service_truck.png}" />Address:</p>
+                        </div>
+                        <div>
+                            <textarea rows="6" cols="50" th:name="address" required placeholder="79 Harrison..."></textarea>
+                        </div>
+                    </div><br/>
+                    <div class="sign_up_submit">
+                        <input type="submit" value="Submit" />
+                        <input type="reset" value="Reset" />
+                        <!-- onclick="location.href='index.html#login'"-->
+                    </div>
+                </form>
+                <h3 th:if="${valid_create}" th:text="${valid_create}"></h3>
+            </div>
+        </div>
+        <div id="about" class="about">
+            <h2>About Us</h2>
+            <div class="all-ep">
+                <div class="ep">
+                    <img th:src="@{images/imagesclient/avatar/Tuan.png}" alt="" width="200" height="200">
+                    <div>
+                        <h3>Bui Quoc Tuan</h3>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit tempora sed est vel accusamus ipsa a iure iste vero excepturi, doloremque voluptatum natus, reiciendis inventore? Porro, molestias. Corporis, temporibus iure!
+                    </div>
+                    <a id="cont1" href="#">Contact</a>
+                </div>
+                <div class="ep">
+                    <img th:src="@{images/imagesclient/avatar/Lam.png}" alt="" width="200" height="200">
+                    <div>
+                        <h3>Quach Gia Lam</h3>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit tempora sed est vel accusamus ipsa a iure iste vero excepturi, doloremque voluptatum natus, reiciendis inventore? Porro, molestias. Corporis, temporibus iure!
+                    </div>
+                    <a id="cont2" href="#">Contact</a>
+                </div>
+                <div class="ep">
+                    <img th:src="@{images/imagesclient/avatar/Thach.png}" alt="" width="200" height="200">
+                    <div>
+                        <h3>Nguyen Ngoc Thach</h3>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit tempora sed est vel accusamus ipsa a iure iste vero excepturi, doloremque voluptatum natus, reiciendis inventore? Porro, molestias. Corporis, temporibus iure!
+                    </div>
+                    <a id="cont3" href="#">Contact</a>
+                </div>
+                <div class="ep">
+                    <img th:src="@{images/imagesclient/avatar/Minh.png}" alt="" width="200" height="200">
+                    <div>
+                        <h3>Hoang Vu Ngoc Minh</h3>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit tempora sed est vel accusamus ipsa a iure iste vero excepturi, doloremque voluptatum natus, reiciendis inventore? Porro, molestias. Corporis, temporibus iure!
+                    </div>
+                    <a id="cont4" href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="company" class="company">
+        <div class="container">
+            <div class="timeline">
+                <ul>
+                    <li>
+                        <div class="timeline-content">
+                            <h2 class="date-line">20th may.2010</h2>
+                            <p>
+                                <a class="weatherwidget-io" href="https://forecast7.com/en/10d82106d63/ho-chi-minh-city/" data-label_1="THÀNH PHỐ HỒ CHÍ MINH" data-label_2="WEATHER" data-theme="original" style="width: 100%;">THÀNH PHỐ HỒ CHÍ MINH WEATHER</a>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-content">
+                            <h2 class="date-line">20th may.2000</h2>
+                            <h1>History Of Company</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet consectetur ducimus asperiores provident expedita corporis ipsum ad repellendus odio repudiandae, dolore vitae possimus, dolores placeat quae sint ipsa et
+                                quos!
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-content">
+                            <h2 class="date-line">20th may.2010</h2>
+                            <h1>Address</h1>
+                            <address>
+                                <p>
+                                    Written by <a href="mailto:gialamq@gmail.com">Gia Lam</a>.<br>
+                                    Visit us at:<br>
+                                    ABCFs.com<br>
+                                    CMT8 street,HoChiMinh City<br>
+                                    VietNamese<br />
+                                <div style="background-color: #333;text-align: center;color: gray;">
+                                    <a href="tel:+84972939830">
+                                        <div class="hotline">
+                                            <span class="before-hotline">Hotline:</span>
+                                            <span class="hotline-number">0972.939.830</span>
+                                        </div>
+                                    </a>
+                                    <a href="http://www.messenger.com/t/Quách Gia Lâm" target="blank">Chat
+                                        Facebook
+                                    </a>
+                                </div>
+
+                                </p>
+                            </address>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-content">
+                            <h2 class="date-line">20th may.2010</h2>
+                            <h1>Benefit</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet consectetur ducimus asperiores provident expedita corporis ipsum ad repellendus odio repudiandae, dolore vitae possimus, dolores placeat quae sint ipsa et
+                                quos!
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.319350036688!2d106.66408561453738!3d10.786834792314457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed2392c44df%3A0xd2ecb62e0d050fe9!2sFPT-Aptech%20Computer%20Education%20HCM!5e0!3m2!1svi!2s!4v1625912578418!5m2!1svi!2s"
+                width="100%" height="30%" style="border:0;z-index: 1000;" allowfullscreen="auto" loading="lazy"></iframe>
+
+        <!-- <div class="foot-content"></div>
+        <div class="btn-up"></div>
+        <div class="foot-3D"></div> -->
+    </div>
+</div>
+</body>
+<!--Concat-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //contact us
+        $("#ctu").click(function (e) {
+            e.preventDefault();
+            window.open(
+                "mailto:LaundryOnline@gmail.com?subject=LaundryOnline: What We Can Help You?&body=Writing your problem ..."
+            );
+        });
+        $("#cont1").click(function (e) {
+            e.preventDefault();
+            window.open(
+                "mailto:Thach@gmail.com?subject=Thach: What We Can Help You?&body=Writing your problem ..."
+            );
+        });
+        $("#cont2").click(function (e) {
+            e.preventDefault();
+            window.open(
+                "mailto:Lam@gmail.com?subject=Lam: What We Can Help You?&body=Writing your problem ..."
+            );
+        });
+        $("#cont3").click(function (e) {
+            e.preventDefault();
+            window.open(
+                "mailto:Tuan@gmail.com?subject=Tuan: What We Can Help You?&body=Writing your problem ..."
+            );
+        });
+        $("#cont4").click(function (e) {
+            e.preventDefault();
+            window.open(
+                "mailto:Minh@gmail.com?subject=Minh: What We Can Help You?&body=Writing your problem ..."
+            );
+        });
+    });
+</script>
+<!-- changeheader -->
+<script>
+    let menuToggle = document.querySelector('.toggle');
+    let navigation = document.querySelector('.navigation');
+    menuToggle.onclick = function() {
+        menuToggle.classList.toggle('select');
+        navigation.classList.toggle('select');
+    }
+</script>
+<!-- date -->
+<script>
+    var x = document.getElementsByClassName("date-line");
+    x[0].innerHTML = new Date().toLocaleString();
+    x[2].innerHTML = new Date().toDateString();
+    x[3].innerHTML = Date.now();
+</script>
+<!-- Widget -->
+<script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+<!-- animation body background color -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/1.0.0/anime.min.js"></script>
+<script>
+    var c = document.getElementById("c");
+    var ctx = c.getContext("2d");
+    var cH;
+    var cW;
+    var bgColor = "#FF6138";
+    var animations = [];
+    var circles = [];
+
+    var colorPicker = (function() {
+        var colors = ["#fc4a55", "#fb6cb2", "#ffcc02", "#ffb42b", "#92ba3c", "#FF6138", "#FFBE53", "#2980B9", "#282741"];
+        var index = 0;
+
+        function next() {
+            index = index++ < colors.length - 1 ? index : 0;
+            return colors[index];
+        }
+
+        function current() {
+            return colors[index];
+        }
+        return {
+            next: next,
+            current: current
+        }
+    })();
+
+    function removeAnimation(animation) {
+        var index = animations.indexOf(animation);
+        if (index > -1) animations.splice(index, 1);
+    }
+
+    function calcPageFillRadius(x, y) {
+        var l = Math.max(x - 0, cW - x);
+        var h = Math.max(y - 0, cH - y);
+        return Math.sqrt(Math.pow(l, 2) + Math.pow(h, 2));
+    }
+
+    function addClickListeners() {
+        document.addEventListener("touchstart", handleEvent);
+        document.addEventListener("mousedown", handleEvent);
+    };
+
+    function handleEvent(e) {
+        if (e.touches) {
+            e.preventDefault();
+            e = e.touches[0];
+        }
+        var currentColor = colorPicker.current();
+        var nextColor = colorPicker.next();
+        var targetR = calcPageFillRadius(e.pageX, e.pageY);
+        var rippleSize = Math.min(200, (cW * .4));
+        var minCoverDuration = 750;
+
+        var pageFill = new Circle({
+            x: e.pageX,
+            y: e.pageY,
+            r: 0,
+            fill: nextColor
+        });
+        var fillAnimation = anime({
+            targets: pageFill,
+            r: targetR,
+            duration: Math.max(targetR / 2, minCoverDuration),
+            easing: "easeOutQuart",
+            complete: function() {
+                bgColor = pageFill.fill;
+                removeAnimation(fillAnimation);
+            }
+        });
+
+        var ripple = new Circle({
+            x: e.pageX,
+            y: e.pageY,
+            r: 0,
+            fill: currentColor,
+            stroke: {
+                width: 3,
+                color: currentColor
+            },
+            opacity: 1
+        });
+        var rippleAnimation = anime({
+            targets: ripple,
+            r: rippleSize,
+            opacity: 0,
+            easing: "easeOutExpo",
+            duration: 900,
+            complete: removeAnimation
+        });
+
+        var particles = [];
+        for (var i = 0; i < 32; i++) {
+            var particle = new Circle({
+                x: e.pageX,
+                y: e.pageY,
+                fill: currentColor,
+                r: anime.random(24, 48)
+            })
+            particles.push(particle);
+        }
+        var particlesAnimation = anime({
+            targets: particles,
+            x: function(particle) {
+                return particle.x + anime.random(rippleSize, -rippleSize);
+            },
+            y: function(particle) {
+                return particle.y + anime.random(rippleSize * 1.15, -rippleSize * 1.15);
+            },
+            r: 0,
+            easing: "easeOutExpo",
+            duration: anime.random(1000, 1300),
+            complete: removeAnimation
+        });
+        animations.push(fillAnimation, rippleAnimation, particlesAnimation);
+    }
+
+    function extend(a, b) {
+        for (var key in b) {
+            if (b.hasOwnProperty(key)) {
+                a[key] = b[key];
+            }
+        }
+        return a;
+    }
+
+    var Circle = function(opts) {
+        extend(this, opts);
+    }
+
+    Circle.prototype.draw = function() {
+        ctx.globalAlpha = this.opacity || 1;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+        if (this.stroke) {
+            ctx.strokeStyle = this.stroke.color;
+            ctx.lineWidth = this.stroke.width;
+            ctx.stroke();
+        }
+        if (this.fill) {
+            ctx.fillStyle = this.fill;
+            ctx.fill();
+        }
+        ctx.closePath();
+        ctx.globalAlpha = 1;
+    }
+
+    var animate = anime({
+        duration: Infinity,
+        update: function() {
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, cW, cH);
+            animations.forEach(function(anim) {
+                anim.animatables.forEach(function(animatable) {
+                    animatable.target.draw();
+                });
+            });
+        }
+    });
+
+    var resizeCanvas = function() {
+        cW = window.innerWidth;
+        cH = window.innerHeight;
+        c.width = cW * devicePixelRatio;
+        c.height = cH * devicePixelRatio;
+        ctx.scale(devicePixelRatio, devicePixelRatio);
+    };
+
+    (function init() {
+        resizeCanvas();
+        if (window.CP) {
+            // CodePen's loop detection was causin' problems
+            // and I have no idea why, so...
+            window.CP.PenTimer.MAX_TIME_IN_LOOP_WO_EXIT = 6000;
+        }
+        window.addEventListener("resize", resizeCanvas);
+        addClickListeners();
+        if (!!window.location.pathname.match(/fullcpgrid/)) {
+            startFauxClicking();
+        }
+        handleInactiveUser();
+    })();
+
+    function handleInactiveUser() {
+        var inactive = setTimeout(function() {
+            fauxClick(cW / 2, cH / 2);
+        }, 2000);
+
+        function clearInactiveTimeout() {
+            clearTimeout(inactive);
+            document.removeEventListener("mousedown", clearInactiveTimeout);
+            document.removeEventListener("touchstart", clearInactiveTimeout);
+        }
+
+        document.addEventListener("mousedown", clearInactiveTimeout);
+        document.addEventListener("touchstart", clearInactiveTimeout);
+    }
+
+    function startFauxClicking() {
+        setTimeout(function() {
+            fauxClick(anime.random(cW * .2, cW * .8), anime.random(cH * .2, cH * .8));
+            startFauxClicking();
+        }, anime.random(200, 900));
+    }
+
+    function fauxClick(x, y) {
+        var fauxClick = new Event("mousedown");
+        fauxClick.pageX = x;
+        fauxClick.pageY = y;
+        document.dispatchEvent(fauxClick);
+    }
+</script>
+
+</html>

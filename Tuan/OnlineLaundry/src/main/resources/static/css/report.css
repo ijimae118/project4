@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700&display=swap');
+
+.container{
+    width: 80%;
+    margin: 70px 0 0 90px;
+    justify-content: center;
+}
+
+.item1{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.item2, .item3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.logo{
+    flex-basis: 400px;
+}
+
+.information{
+    text-align: right;
+}
+
+.title-report{
+    font-family: 'Rampart One', cursive;
+    text-align: center;
+    font-size: 47px;
+    color: #00cc00;
+}
+
+.table{
+    flex-basis: 1000px;
+}
+
+.total{
+    font-family: 'Limelight', cursive;
+    color: #990000;
+    text-align: right;
+}
+
+#printReport{
+    padding: 30px 0 0 90px;
+}
+.printReportTitle{
+    font-family: 'Shippori Mincho', serif;
+    font-size: 18px;
+}
+

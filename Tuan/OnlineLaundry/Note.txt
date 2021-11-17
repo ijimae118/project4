@@ -1,0 +1,7 @@
+1>Start Xampp
+2>Create database laundrydb Ex:Create_database.PNG
+3>Open project in intellij IDEA
+4>Go to application.properties edit the url,username,password MySQL (If any)
+5>Run project
+6>Go to any browser typing : http://localhost:8080/
+End  

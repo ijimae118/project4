@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/alpha_8cc63e"
+        android:fitsSystemWindows="true">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="@dimen/dp_16"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dp_56">
+
+                <RadioButton
+                    android:id="@+id/cash_payment_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="@string/cash_payment"
+                    android:textColor="@color/green_8cc63e"
+                    android:textSize="@dimen/sp_13"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/shipping_method" />
+
+
+                <RadioButton
+                    android:id="@+id/momo_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/momo_wallet"
+                    android:textColor="@color/green_8cc63e"
+                    android:textSize="@dimen/sp_13"
+                    app:layout_constraintBottom_toBottomOf="@id/cash_payment_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cash_payment_button" />
+
+                <View
+                    android:id="@+id/line2"
+                    style="@style/line_straight_style"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ordered_list" />
+
+                <View
+                    android:id="@+id/line3"
+                    style="@style/line_straight_style"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sub_total_text" />
+
+                <View
+                    android:id="@+id/line4"
+                    style="@style/line_straight_style"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/shipping_fee_text" />
+
+
+                <View
+                    android:id="@+id/line5"
+                    style="@style/line_straight_style"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/sub_total_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_12"
+                    android:text="@string/sub_total"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_15"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/line2" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/sub_total_fee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_2"
+                    android:layout_marginTop="@dimen/dp_2"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_13"
+                    app:layout_constraintBottom_toBottomOf="@id/sub_total_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/sub_total_text"
+                    tools:text="6$" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/shipping_fee_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_12"
+                    android:text="@string/shipping_fee"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_15"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/line3" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/shipping_fee_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_2"
+                    android:layout_marginTop="@dimen/dp_2"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_13"
+                    app:layout_constraintBottom_toBottomOf="@id/shipping_fee_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/shipping_fee_text"
+                    tools:text="6$" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/total_price_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_24"
+                    android:text="@string/total_price"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_20"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/line4" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/vat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:text="No VAT(10%)"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/sp_10"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/total_price_text" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/total_price_fee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/green_8cc63e"
+                    android:textSize="@dimen/sp_20"
+                    app:layout_constraintBottom_toBottomOf="@id/total_price_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/total_price_text"
+                    tools:text="6$" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/shipping_method"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_12"
+                    android:gravity="center"
+                    android:text="@string/shipping_methods"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_15"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/line5" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/place_order_button"
+                    android:layout_width="@dimen/dp_240"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:background="@drawable/shaper_button_green"
+                    android:gravity="center"
+                    android:text="@string/place_an_order"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_17"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/momo_button" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/shipping_address_card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/dp_4"
+                    android:shadowRadius="4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp_8">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/shipping_detail_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_right_arrow" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/name_and_phone_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_below="@+id/address_shipping_text"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:layout_marginTop="@dimen/dp_2"
+                            android:layout_toStartOf="@+id/shipping_detail_icon"
+                            android:text="@string/name"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_13"
+                            android:visibility="gone" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/shipping_address_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_below="@+id/name_and_phone_text"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:layout_marginTop="@dimen/dp_2"
+                            android:layout_toStartOf="@+id/shipping_detail_icon"
+                            android:paddingEnd="@dimen/dp_8"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_13"
+                            android:visibility="gone" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/address_no_content_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/name_and_phone_text"
+                            android:layout_marginStart="@dimen/dp_8"
+                            android:layout_marginTop="@dimen/dp_2"
+                            android:paddingBottom="@dimen/dp_8"
+                            android:paddingTop="@dimen/dp_8"
+                            android:text="@string/please_select_shipping_address"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_13"
+                            android:visibility="visible" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/address_shipping_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="@dimen/dp_8"
+                            android:drawableStart="@drawable/location_icon"
+                            android:text="@string/shipping_address"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_15"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ordered_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_12"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/shipping_address_card_view"
+                    tools:listitem="@layout/order_confirm_item" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.laundry.app.view.toolbar.LaundryToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_56"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/progress_bar"
+            layout="@layout/progressbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:visibility="gone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

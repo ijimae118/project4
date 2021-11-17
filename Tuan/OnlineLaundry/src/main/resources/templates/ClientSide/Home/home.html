@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{css/home.css}">
+</head>
+
+<body>
+    <section>
+        <div class="bg"></div>
+        <header>
+            <a href="#" class="logo">ABC Launry</a>
+            <div class="toggle"></div>
+            <ul class="navigation">
+                <li><a href="#" class="select">Home</a></li>
+                <li><a th:href="@{/client#company}">Company</a></li>
+                <li><a th:href="@{/client#about}">About Us</a></li>
+                <li><a th:href="@{/client#login}">Login</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="textbox">
+                <h2>Always keep your clothes clean and beautiful</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium similique magnam reprehenderit doloremque dicta quibusdam optio ipsam ex commodi quasi debitis quae itaque rem, cum, assumenda libero voluptate maxime molestias!</p>
+                <a th:href="@{/client#login}">Login Now</a>
+            </div>
+            <div class="imgbox">
+                <img class="img-main" th:src="@{images/imageshome/L1.gif}" alt="">
+            </div>
+        </div>
+        <ul class="thumb">
+            <li data-set="Reception"><img class="thumbnails" th:src="@{images/imageshome/L1.gif}" onclick="imgSlider('images/imageshome/L1.gif');changeBgColor('#fc4a55')" alt="#fc4a55"></li>
+            <li data-set="Washing"><img class="thumbnails" th:src="@{images/imageshome/L2.png}" onclick="imgSlider('images/imageshome/L2.png');changeBgColor('#fb6cb2')" alt="#fb6cb2"></li>
+            <li data-set="Drying"><img class="thumbnails" th:src="@{images/imageshome/L3.png}" onclick="imgSlider('images/imageshome/L3.png');changeBgColor('#92ba3c')" alt="#92ba3c"></li>
+            <li data-set="Ironing"><img class="thumbnails" th:src="@{images/imageshome/L4.png}" onclick="imgSlider('images/imageshome/L4.png');changeBgColor('#ffb42b')" alt="#ffb42b"></li>
+            <li data-set="Steamer-Iron"><img class="thumbnails" th:src="@{images/imageshome/L5.png}" onclick="imgSlider('images/imageshome/L5.png');changeBgColor('#ffcc02')" alt="#ffcc02">
+            </li>
+            <li data-set="Happy Clients"><img class="thumbnails" th:src="@{images/imageshome/L6.png}" onclick="imgSlider('images/imageshome/L6.png');changeBgColor('#2d2d2d')" alt="#2d2d2d"></li>
+        </ul>
+        <ul class="sci">
+            <li>
+                <a href="https://www.messenger.com/t/105976481810604/?messaging_source=source%3Apages%3Amessage_shortlink"><img th:src="@{images/imageshome/facebook.png}" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img th:src="@{images/imageshome/twitter.png}" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img th:src="@{images/imageshome/instagram.png}" alt=""></a>
+            </li>
+        </ul>
+    </section>
+
+    <script>
+        //do toggle resposive
+        let menuToggle = document.querySelector('.toggle');
+        let navigation = document.querySelector('.navigation');
+        menuToggle.onclick = function() {
+                menuToggle.classList.toggle('select');
+                navigation.classList.toggle('select');
+            }
+            //change imgSlider
+        function imgSlider(anything) {
+            document.querySelector('.img-main').src = anything;
+            document.querySelector('.img-main').style.width = "1500px";
+        }
+        //change background Color && navigation
+        function changeBgColor(color) {
+            const bg = document.querySelector('.bg');
+            bg.style.background = color;
+            document.querySelector('.navigation').style.background = color;
+        }
+        //add active class in selected thumb
+        var index = 0;
+        let el = document.querySelectorAll('.thumb li');
+        for (let i = 0; i < el.length; i++) {
+            el[i].onclick = function() {
+                var c = 0;
+                while (c < el.length) {
+                    el[c++].className = 'check';
+                }
+                el[i].className = 'check active';
+
+                index = i;
+
+            }
+        }
+        //slide show
+        let active = document.getElementsByClassName("active");
+        let thumbnails = document.querySelectorAll('.thumbnails');
+
+        function slideShow() {
+            if (active.length > 0) {
+                active[0].classList.remove("active");
+            }
+            index++;
+            if (index == el.length) {
+                index = 0;
+            }
+            el[index].classList.add("active");
+
+            imgSlider(thumbnails[index].src);
+            changeBgColor(thumbnails[index].alt);
+            setTimeout("slideShow()", 8000);
+        }
+        slideShow();
+    </script>
+</body>
+
+<!-- Messenger Plugin chat Code -->
+<div id="fb-root"></div>
+
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "105976481810604");
+    chatbox.setAttribute("attribution", "biz_inbox");
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml            : true,
+            version          : 'v11.0'
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!--ZALO-->
+<div class="zalo-chat-widget" data-oaid="579745863508352884" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="0" data-width="" data-height=""></div>
+
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+
+</html>

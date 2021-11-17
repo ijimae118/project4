@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: html_head"/>
+
+<body>
+
+<div th:replace="fragments :: html_menu"/>
+
+<div class="cover">
+    <div class="show">
+        <div class="show-item table">
+            <h3 style="color: darkgreen">NEW PAYSLIP</h3>
+            <form th:action="@{/payslip/create}" th:object="${payslip}" method="post">
+                <div class="mx-auto" style="width: 450px; text-align:left">
+                    <div class="form-group">
+                        <label>EMPLOYEE ID</label>
+                        <input class="form-control has-error" th:type="text" th:field="*{id}" required/>
+                        <span class="text-danger" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>NAME</label>
+                        <input class="form-control" th:type="text" th:field="*{name2}" required/>
+                        <span class="text-danger" th:if="${#fields.hasErrors('name2')}" th:errors="*{name2}"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>JOB POSITION</label>
+                        <input class="form-control" th:type="text" th:field="*{depart3}" required/>
+                        <span class="text-danger" th:if="${#fields.hasErrors('depart3')}" th:errors="*{depart3}"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ATM ACCOUNT</label>
+                        <input class="form-control" th:type="text" th:field="*{atm4}" required/>
+                        <span class="text-danger" th:if="${#fields.hasErrors('atm4')}" th:errors="*{atm4}"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>DATE SALARY TRANSFERRED TO ATM</label>
+                        <input class="form-control" th:type="date" th:field="*{salmonth5}" required/>
+                        <span class="text-danger" th:if="${#fields.hasErrors('salmonth5')}" th:errors="*{salmonth5}"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>WORKDAYS</label>
+                        <input class="form-control" th:type="number" min="0" th:field="*{acworkday12}" required/>
+                        <span class="text-danger" th:if="${#fields.hasErrors('acworkday12')}" th:errors="*{acworkday12}"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>SENIOTORY</label>
+                        <input class="form-control" th:type="number" min="0" th:field="*{coefsal7}" required/>
+                        <span class="text-danger" th:if="${#fields.hasErrors('coefsal7')}" th:errors="*{coefsal7}"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>MANGEMENT POSITION</label>
+                        <input class="form-control" th:type="number" min="0" th:field="*{coefposis8}" required/>
+                        <span class="text-danger" th:if="${#fields.hasErrors('coefposis8')}" th:errors="*{coefposis8}"></span>
+                    </div>
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label>LIABILITY FACTOR</label>-->
+                    <!--                        <input class="form-control" th:type="number" min="0" th:field="*{liabfac9}" required/>-->
+                    <!--                        <span class="text-danger" th:if="${#fields.hasErrors('liabfac9')}" th:errors="*{liabfac9}"></span>-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label>1.2.4-family allowance</label>-->
+                    <!--                        <input class="form-control" th:type="number" min="0" th:field="*{marsys10}" required/>-->
+                    <!--                        <span class="text-danger" th:if="${#fields.hasErrors('marsys10')}" th:errors="*{marsys10}"></span>-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label>2.1- Overtime salary</label>-->
+                    <!--                        <input class="form-control" th:type="number" min="0" th:field="*{oversal14}" required/>-->
+                    <!--                        <span class="text-danger" th:if="${#fields.hasErrors('oversal14')}" th:errors="*{oversal14}"></span>-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label>2.2-Difficult support</label>-->
+                    <!--                        <input class="form-control" th:type="number" min="0" th:field="*{superdiem15}" required/>-->
+                    <!--                        <span class="text-danger" th:if="${#fields.hasErrors('superdiem15')}" th:errors="*{superdiem15}"></span>-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label>2.3-Phone funding support</label>-->
+                    <!--                        <input class="form-control" th:type="number" min="0" th:field="*{phonesup16}" required/>-->
+                    <!--                        <span class="text-danger" th:if="${#fields.hasErrors('phonesup16')}" th:errors="*{phonesup16}"></span>-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label>2.4-Trade union allowance</label>-->
+                    <!--                        <input class="form-control" th:type="number" min="0" th:field="*{tradeallow17}" required/>-->
+                    <!--                        <span class="text-danger" th:if="${#fields.hasErrors('tradeallow17')}" th:errors="*{tradeallow17}"></span>-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label>2.5-Salary increase due to good consciousness</label>-->
+                    <!--                        <input class="form-control" th:type="number" min="0" th:field="*{salincrease18}" required/>-->
+                    <!--                        <span class="text-danger" th:if="${#fields.hasErrors('salincrease18')}" th:errors="*{salincrease18}"></span>-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label>2.6-Mid shift meal</label>-->
+                    <!--                        <input class="form-control" th:type="number" min="0" th:field="*{midsimeal19}" required/>-->
+                    <!--                        <span class="text-danger" th:if="${#fields.hasErrors('midsimeal19')}" th:errors="*{midsimeal19}"></span>-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label>2.7-Bonuses for holiday and TET</label>-->
+                    <!--                        <input class="form-control" th:type="number" min="0" th:field="*{bonoustet20}" required/>-->
+                    <!--                        <span class="text-danger" th:if="${#fields.hasErrors('bonoustet20')}" th:errors="*{bonoustet20}"></span>-->
+                    <!--                    </div>-->
+
+                    <!--                    <div class="form-group">-->
+                    <!--                        <label>3.4- Monthly union fee</label>-->
+                    <!--                        <input class="form-control" th:type="number" min="0" th:field="*{monthlyunfe25}" required/>-->
+                    <!--                        <span class="text-danger" th:if="${#fields.hasErrors('monthlyunfe25')}" th:errors="*{monthlyunfe25}"></span>-->
+                    <!--                    </div>-->
+
+                    <div class="form-group">
+                        <label>IV- ADVANCES MONEY</label>
+                        <input class="form-control" th:type="number" min="0" th:field="*{advances}" required/>
+                        <span class="text-danger" th:if="${#fields.hasErrors('advances')}" th:errors="*{advances}"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="btn btn-primary" type="submit" value="Create">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div th:replace="fragments :: html_toggle"/>
+</div>
+
+<!--Javascript-->
+<div th:replace="fragments :: html_foot"/>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style th:inline="text">
+        body {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: aliceblue;
+            /*background-image: url([[@{/images/bg-AdminHome.png}]]);*/
+            background-image: url(/images/AdminLogin.png);
+            background-repeat: no-repeat;
+            background-position: top;
+            color: #4d5bf9;
+        }
+
+        .cover {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-control {
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        form {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        @media screen and (max-width: 998px) {
+            body {
+                background-position: right;
+                color: dodgerblue;
+                font-size: larger;
+                margin-bottom: 100px;
+                text-align: center;
+                overflow-y: hidden;
+            }
+            h2 {
+                font-size: xx-large;
+                font-weight: bold;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="cover">
+    <div class="form">
+        <form th:action="@{/signin}" method="POST">
+            <div class="mb-3">
+                <h2>Laundry Admin</h2>
+            </div>
+            <div class="form-control">
+                <div class="mb-3 row">
+                    <label for="Id" class="form-label col-sm-3 text-end">No:</label>
+                    <input type="text" class="col-sm-7 btn-outline-info" id="Id" th:name="id"/>
+                </div>
+                <div class="mb-3 row">
+                    <label for="Password" class="form-label">Password:</label>
+                    <input type="password" class="col-sm-12 btn-outline-info" id="Password" th:name="password"/>
+                </div>
+                <div>
+                    <h3 class="bg-warning" style="color: #ff0000;text-align: center;" th:if="${error}" th:text="${error}"></h3>
+                    <button type="submit" class="btn btn-primary">SingIn</button>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+</body>
+<!-- Messenger Plugin chat Code -->
+<div id="fb-root"></div>
+
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "107951581605048");
+    chatbox.setAttribute("attribution", "biz_inbox");
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml            : true,
+            version          : 'v11.0'
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Text:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ledger&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body id="items">
+<header th:replace="fragmentsClient :: pro_header">
+</header>
+<style>
+    /*Button*/
+    button {
+        margin: 20px;
+    }
+    .custom-btn {
+        width: 130px;
+        height: 40px;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px 25px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 500;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+        7px 7px 20px 0px rgba(0,0,0,.1),
+        4px 4px 5px 0px rgba(0,0,0,.1);
+        outline: none;
+    }
+    /* 9 */
+    .btn-9 {
+        border: none;
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+    .btn-9:after {
+        position: absolute;
+        content: " ";
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #1fd1f9;
+        background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+        transition: all 0.3s ease;
+    }
+    .btn-9:hover {
+        background: transparent;
+        box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+        -4px -4px 6px 0 rgba(116, 125, 136, .2),
+        inset -4px -4px 6px 0 rgba(255,255,255,.5),
+        inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+        color: #fff;
+    }
+    .btn-9:hover:after {
+        -webkit-transform: scale(2) rotate(180deg);
+        transform: scale(2) rotate(180deg);
+        box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+        -4px -4px 6px 0 rgba(116, 125, 136, .2),
+        inset -4px -4px 6px 0 rgba(255,255,255,.5),
+        inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    }
+</style>
+<link rel="stylesheet" th:href="@{css/product.css}">
+<div class="user-container" style="background-image: linear-gradient(to top,#ff1a1a,#DD6F6F,#66ffff,#00ccff);">
+    <div class="user-cover">
+        <!-- style="background-color: #da5b5b;" -->
+        <div class="user-edit">
+            <div>
+                <h3>
+                    <img th:src="@{'images/users-link_image/'+${users.getLink_image()}}"
+                         style="width: 150px;height: 150px;border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%;background-color: white"/>
+                    <b style="font-family: 'Limelight', cursive; font-size: 26px;">Your information</b>
+                </h3>
+            </div><br>
+            <form th:action="@{/show_userSide_Save}" th:object="${users}" method="post" enctype="multipart/form-data">
+                <div class="signup-on">
+                    <div class="sign_up">
+                        <div>
+                            <p style="font-family: 'Sofia', cursive;font-weight: bolder; font-size: 18px; color: black"><img th:src="@{images/imagesclient/LaundryIcon/laundry_washing_machine.png}" /> Email :</p>
+                            <input type="email" name="email" placeholder="Daniel123@gmail.com" th:field="*{email}"
+                                   required/>
+                            <span style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                        </div>
+                        <div>
+                            <p style="font-family: 'Sofia', cursive;font-weight: bolder; font-size: 18px; color: black"><img th:src="@{images/imagesclient/LaundryIcon/clothes_basket.png}"/> Password :</p>
+                            <input th:type="password" th:field="*{password}" required name="password"
+                                   placeholder="123..."/>
+                            <span style="color: red" th:if="${#fields.hasErrors('password')}"
+                                  th:errors="*{password}"></span>
+                        </div>
+                    </div><br>
+                    <div class="sign_up">
+                        <div>
+                            <p style="font-family: 'Sofia', cursive;font-weight: bolder; font-size: 18px; color: black"><img th:src="@{images/imagesclient/LaundryIcon/clean_suit.png}"/> Full Name :</p>
+                            <input th:type="text" th:field="*{full_name}" required name="full_name"
+                                   placeholder="Daniel Radcliffe"/>
+                            <span style="color: red" th:if="${#fields.hasErrors('full_name')}"
+                                  th:errors="*{full_name}"></span>
+                        </div>
+                        <div>
+                            <p style="font-family: 'Sofia', cursive;font-weight: bolder; font-size: 18px;color: black"><img th:src="@{images/imagesclient/LaundryIcon/iron_washing_housework.png}"/> Phone Number :</p>
+                            <input th:type="text" th:field="*{phone}" pattern="^\d{10,}$" required name="phone"
+                                   placeholder="0989..."/>
+                            <span style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="sign_up">
+                        <div>
+                            <p style="font-family: 'Sofia', cursive;font-weight: bolder; font-size: 18px; color: black"><img th:src="@{images/imagesclient/LaundryIcon/liquid_fabric.png}"/> Image :</p>
+                            <input type="file" name="fileImage" id="fileImage" accept="image/*" value="null" required/>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="sign-bottom">
+                    <div style="margin: 0 2px;">
+                        <p style="font-family: 'Sofia', cursive;font-weight: bolder; font-size: 18px; color: black"><img th:src="@{images/imagesclient/LaundryIcon/service_truck.png}"/> Address :</p>
+                    </div>
+                    <div>
+                        <!--<textarea rows="6" cols="50" th:name="address" required placeholder="Ex: 79 Harrison..." th:text="${users.getAddress()}"></textarea>-->
+                        <textarea rows="6" cols="50" th:type="text" th:field="*{address}" required name="address"
+                                  placeholder="79 Harrison..."/>
+                        <span style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+                    </div>
+                </div>
+                <br/>
+                <div class="sign_up_submit">
+                    <button class="custom-btn btn-9" style="background-color: #1fd1f9;
+        background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="user-bill">
+            <h2 style="font-family: 'Big Shoulders Inline Text', cursive; text-align: center; font-size: 65px; font-weight: bolder">Book History</h2>
+            <p style="font-family: 'Ledger', serif;">* All cash payments of your choice: </p>
+            <div class="container" th:if="${Canceled}">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Notification!</strong> <span th:text="${Canceled}"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="padding:0;"></button>
+                </div>
+            </div>
+            <div th:each="o :${orders}" th:if="${o.getStatus()!= 5}" class="container modal-content">
+                <div class="alert alert-light alert-dismissible fade show" role="alert">
+                    <div class="modal-header">
+                        <h5 class="modal-title">No:<span th:text="${o.getId()}"></span>
+                            <sup th:text="${o.getCreated_at()}">25/07/2021 12:00:00</sup>
+                        </h5>
+                    </div>
+                    <div th:each="d : ${o.getOrder_detailCollection()}" class="modal-body row">
+                        <p class="col-sm-2">
+                            <span th:text="${d.getQuantity()}"></span><span th:text="${d.getServices_id().getType()=='Demand'?'x':d.getServices_id().getType()}"></span>
+                        </p>
+                        <p class="col-sm-3">
+                            <span style="color: deepskyblue" th:text="${d.getServices_id().getName()}"></span>
+                        </p>
+                        <p class="col-sm-5">
+                            <span style="color: #5bc0de" th:text="${d.getServices_id().getDescription()}"></span>
+                        </p>
+                        <p class="col-sm-2">
+                            <span th:text="'Sum: $'+${d.getPrice()}"></span>
+                        </p>
+                    </div>
+                    <div class="modal-body">
+
+                        <th:block th:switch="${o.getStatus()}">
+                            <p th:case="0">
+                                Process: Waiting
+                            </p>
+                            <p th:case="1">
+                                Process: Confirm
+                            </p>
+                            <p th:case="2">
+                                Process: Reception
+                            </p>
+                            <p th:case="3">
+                                Process: On Process
+                            </p>
+                            <p th:case="4">
+                                Process: Finished
+                            </p>
+                            <p th:case="5">
+                                Process: Cancelled
+                            </p>
+                        </th:block>
+
+                        <p>Payment(VAT:10%): $ <span th:text="${o.getPayment()}"></span></p>
+                        <p>Address: <span th:text="${o.getAddress()}"></span></p>
+                    </div>
+                    <div th:if="${o.getStatus()==0}" class="modal-footer">
+                        <a onclick="return confirm('Are you sure?');" type="button" th:href="@{'/cancel_Service?id='+${o.getId()}}" class="btn btn-primary">Cancel</a>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+            <!--            <div class="container modal-content">-->
+            <!--                <div class="alert alert-light alert-dismissible fade show" role="alert">-->
+            <!--                    <div class="modal-header">-->
+            <!--                        <h5 class="modal-title">Name Item-->
+            <!--                            <sup>25/07/2021 12:00:00</sup>-->
+            <!--                        </h5>-->
+            <!--                    </div>-->
+            <!--                    <div class="modal-body">-->
+            <!--                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem laboriosam sapiente beatae fuga-->
+            <!--                            architecto dolorum, corporis facilis repellendus debitis incidunt excepturi voluptas quaerat-->
+            <!--                            quasi iusto inventore unde dolorem perspiciatis-->
+            <!--                            officia.-->
+            <!--                        </p>-->
+            <!--                    </div>-->
+            <!--                    <div class="modal-footer">-->
+            <!--                        <button type="button" class="btn btn-primary">Cancelling invoice</button>-->
+            <!--                    </div>-->
+            <!--                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!-- <div class="container modal-content">
+                <div class="alert alert-light alert-dismissible fade show" role="alert">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Name Item
+                            <sup>25/07/2021 12:00:00</sup>
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="md-container">
+                            <div class="modal-item">
+                                <div class="md-img-box">
+                                    <img src="#" alt="" srcset="">
+                                </div>
+                                Quantity : 2 Price : 1200$ <b>/1</b>
+                            </div>
+                            <div class="md-content">
+                                Quantity order: 2 <br/> Sum Price : 2400 $ (1200/1 $)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Cancelling invoice</button>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+<footer>
+    <a href="#items"><i class="fas fa-arrow-alt-circle-up"></i></a>
+</footer>
+<script>
+    // change imgSlider
+    function imgSlider(anything) {
+        document.querySelector('.img-main').src = anything;
+    }
+</script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+
+</html>

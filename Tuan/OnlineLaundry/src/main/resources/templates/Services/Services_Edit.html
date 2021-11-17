@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: html_head"/>
+
+<body>
+
+<div th:replace="fragments :: html_menu"/>
+
+<div class="cover">
+    <div class="show">
+        <div class="show-item table">
+            <h3>Update Service</h3>
+            <form th:action="@{'/Services_Edit_Save/'+${services.getId()}}" th:object="${services}" method="post" enctype="multipart/form-data">
+                <table>
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Name</td>
+                        <td><input class="form-control col-sm-10" th:min="1" th:type="text"  th:field="*{name}" required/></td>
+                        <td><span  style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Price</td>
+                        <td><input class="form-control col-sm-10" th:type="number"  th:field="*{price}" required/></td>
+                        <td><span  style="color: red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Type</td>
+                        <td><input class="form-control col-sm-10" th:type="text"  th:field="*{type}" required/></td>
+                        <td><span  style="color: red" th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Image</td>
+                        <td><input class="form-control col-sm-10" type="file" name="fileImage" id="fileImage" accept="image/*" required/></td>
+                    </tr>
+<!--                    <tr class="row">-->
+<!--                        <td class="form-label col-sm-2">Image</td>-->
+<!--                        <td><input class="form-control col-sm-10" th:type="text"  th:field="*{image}" required/></td>-->
+<!--                        <td><span  style="color: red" th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></span></td>-->
+<!--                    </tr>-->
+                    <tr class="row">
+                        <td class="form-label col-sm-2">Description</td>
+                        <td><textarea class="form-control col-sm-10" th:type="text"  th:field="*{description}" /></td>
+                        <td><span  style="color: red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span></td>
+                    </tr>
+                </table>
+                <div class="row">
+                    <button class="btn btn-info bg-info col-sm-2" type="submit" style="width:fit-content;margin:10px">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div th:replace="fragments :: html_toggle"/>
+</div>
+
+<!--Javascript-->
+<div th:replace="fragments :: html_foot"/>
+</body>
+
+</html>

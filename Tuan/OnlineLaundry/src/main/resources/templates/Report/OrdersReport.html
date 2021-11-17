@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Orders Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700&display=swap');
+
+        .title-report {
+            font-family: 'Rampart One', cursive;
+            text-align: center;
+            font-size: 47px;
+            color: #00cc00;
+        }
+    </style>
+</head>
+
+<body>
+<div id="photo">
+    <div class="row" style="padding-top: 10px;">
+        <div class="col-sm-12 col-md-6 text-center">
+            <p id="printReport"><b class="printReportTitle form-label">Print Report:</b>
+                <button onclick="printContent('reportShipper')" class="btn btn-success">Print</button>
+            </p>
+        </div>
+        <div class="col-sm-12 col-md-6 text-center">
+            <form class="form-horizontal" th:action="@{/Orders_Search_Date}" method="post">
+                <input type="text" class="form-label btn" placeholder="Search" th:name="search" id="search"/>
+                <input type="submit" class="btn btn-primary" value="Find"/>
+            </form>
+        </div>
+    </div>
+    <hr style="margin: 0 90px 0 90px"/>
+    <div class="container" id="reportShipper" style="margin: 25px auto;">
+        <div class="item1 row">
+            <div class="logo col-sm-12 col-md-6">
+                <h1><b style="color: #0dcaf0">A</b>BC</br>Laundry</h1>
+            </div>
+            <div class="information col-sm-12 col-md-6 text-right">
+                <p><b>0981576920</b></p>
+                <p><b th:text="${current_date}">Tuesday, August 31, 2021 </b></p>
+                <p><b>590 Cach Mang Thang 8, Ward 11, District 3, Ho Chi Minh City</b></p>
+            </div>
+        </div>
+
+        <div class="item2 container-fluid">
+            <p class="title-report text-center">Order Report</p>
+        </div>
+
+        <br/>
+        <div class="item3">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th colspan="5"></th>
+                    <th scope="col">ID</th>
+                    <th scope="col">CREATED DATE</th>
+                    <th scope="col">ADDRESS</th>
+                    <th scope="col">USER EMAIL</th>
+                    <th scope="col">USER PHONE</th>
+                    <th scope="col">STATUS</th>
+                    <th scope="col">PAYMENT</th>
+                </tr>
+                </thead>
+                <tbody th:each="o :${ordersList}">
+                <tr>
+                    <th colspan="5"></th>
+                    <th scope="row" th:text="${o.getId()}">S001</th>
+                    <td th:text="${o.getCreated_at()}">123</td>
+                    <td th:text="${o.getAddress()}">0896494789</td>
+                    <td th:text="${o.getUser_email().getEmail()}">120</td>
+                    <td th:text="${o.getUser_phone()}">123</td>
+                    <td >
+                        <th:block th:switch="${o.getStatus()}">
+                            <p th:case="0">
+                                Waiting
+                            </p>
+                            <p th:case="1">
+                                Confirm
+                            </p>
+                            <p th:case="2">
+                                Reception
+                            </p>
+                            <p th:case="3">
+                                On Process
+                            </p>
+                            <p th:case="4">
+                                Finished
+                            </p>
+                            <p th:case="5">
+                                Cancelled
+                            </p>
+                        </th:block>
+                    </td>
+                    <td th:text="${o.getPayment()}">120</td>
+                </tr>
+                <tr>
+                    <td colspan="12" style="background-color: #e0eed3;">
+
+                        <div th:if="${o.getStatus()!= 5}" class="container-fluid">
+                            <div class="container row" role="alert ">
+                                <div class="modal-header col-sm-12 col-md-4">
+                                    <!--                                    <h5 class="modal-title ">No:<span th:text="${o.getId()} ">S001</span>-->
+                                    <!--                                        <sup th:text="${o.getCreated_at()} ">25/07/2021 12:00:00</sup>-->
+                                    <!--                                    </h5>-->
+                                    <img th:src="@{'images/users-link_image/'+${o.getUser_email().getLink_image()}}"
+                                         alt="" srcset="" style="width: 150px;height: 150px;"/>
+                                </div>
+                                <div class="col-sm-12 col-md-8 modal-body">
+                                    <div th:each="d : ${o.getOrder_detailCollection()} " class="row">
+                                        <p class="col-sm-2 ">
+                                            <span th:text="${d.getQuantity()} "></span><span
+                                                th:text="${d.getServices_id().getType()=='Demand' ? 'x':d.getServices_id().getType()} ">1x</span>
+                                        </p>
+                                        <p class="col-sm-3 ">
+                                            <span style="color: deepskyblue "
+                                                  th:text="${d.getServices_id().getName()} ">Wash</span>
+                                        </p>
+                                        <p class="col-sm-5 ">
+                                            <span style="color: #5bc0de "
+                                                  th:text="${d.getServices_id().getDescription()} ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, nostrum exercitationem! Perferendis sunt repellat quos nulla numquam rem qui recusandae deleniti delectus, aut velit alias tenetur facere repellendus nisi eaque.</span>
+                                        </p>
+                                        <p class="col-sm-2 ">
+                                            <span th:text=" 'Sum: $'+${d.getPrice()}">$ 12000</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr style="background-color: #ccff99 ">
+                    <td colspan="10 "></td>
+                    <td class="total ">Total<10%VAT></td>
+                    <td th:text="'$'+${paymentTotal}">220</td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function printContent(el) {
+        var restorepage = document.body.innerHTML;
+        var printcontent = document.getElementById(el).innerHTML;
+        document.body.innerHTML = printcontent;
+        window.print();
+        document.body.innerHTML = restorepage;
+    }
+</script>
+
+</html>

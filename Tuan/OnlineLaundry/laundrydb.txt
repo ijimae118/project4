@@ -1,0 +1,48 @@
+CREATE TABLE admin (
+    id VARCHAR(20) NOT NULL PRIMARY KEY,
+    password VARCHAR(20)
+);
+CREATE TABLE services (
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
+    price int,
+    type varchar(50),
+    image text,
+    description text
+);
+
+
+CREATE TABLE shipper (
+    id VARCHAR(20) NOT NULL PRIMARY KEY,
+    password VARCHAR(20),
+    phone VARCHAR(50),
+    salary int
+);
+
+CREATE TABLE users (
+    email  VARCHAR(225) NOT NULL PRIMARY KEY,
+    password VARCHAR(20),
+    full_name VARCHAR(225),
+    link_image VARCHAR(225),
+    phone VARCHAR(50)
+);
+CREATE TABLE orders (
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    address varchar(255),
+    created_at datetime,
+    user_email varchar(255),
+    user_phone varchar(50),
+    status int,
+    FOREIGN KEY (user_email) REFERENCES users(email)
+);
+CREATE TABLE order_detail (
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    order_id int,
+    services_id int,
+    price int,
+    shipper_id varchar(20),
+    shipping_fee int,
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (services_id) REFERENCES services(id),
+    FOREIGN KEY (shipper_id) REFERENCES shipper(id)
+);

@@ -1,0 +1,541 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+body {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    box-sizing: border-box;
+    background-color: #fffffa;
+    color: #fffffae5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+    color: rgb(240, 236, 236);
+}
+
+canvas {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    min-height: 4000vh;
+}
+
+.container {
+    position: relative;
+    width: 90%;
+    margin: auto;
+}
+
+
+/* header */
+
+.header {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header>.logo {
+    position: relative;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2em;
+}
+
+.header .navigation {
+    position: relative;
+    display: flex;
+}
+
+.header .navigation li {
+    list-style: none;
+    display: inline-block;
+}
+
+.header .navigation li a {
+    color: #fff;
+    font-weight: 400;
+    margin-left: 10px;
+    padding: 8px 15px;
+    border-radius: 40px;
+    text-decoration: none;
+}
+
+.header .navigation li a.select,
+.header .navigation li a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+
+/* bodier */
+
+.login,
+.register,
+.about {
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.1);
+    min-height: 97vh;
+    color: #fff;
+    box-shadow: 5px 15px 10px rgba(0, 0, 0, 0.1);
+}
+input[type=email],
+input[type=text],
+input[type=date],
+input[type=password],
+input[type=radio] {
+    padding: 10px;
+    font-size: 1em;
+}
+
+input[type=submit],
+input[type=reset] {
+    padding: 5px;
+    font-size: 2em;
+    width: 50%;
+    border-radius: 20px;
+    background-color: deeppink;
+}
+
+
+/* login form no div*/
+
+.bodier>.login {
+    border: deeppink 10px solid;
+    border-left: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: deeppink;
+}
+
+.bodier>.login h2 {
+    font-size: 5em;
+    background-color: #fff;
+    border: 1px transparent;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.bodier>.login h2::before {
+    width: 150px;
+    height: 150px;
+    background-color: cornflowerblue;
+}
+
+.bodier>.login a:hover {
+    color: gainsboro;
+}
+
+
+/* Signup form div*/
+
+.bodier .register {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    border: deeppink 10px solid;
+    border-top: none;
+    border-right: none;
+    color: deeppink;
+    text-align: center;
+}
+
+.bodier .register .signup {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.bodier>.register h2 {
+    font-size: 5em;
+    background-color: #fff;
+    border: 1px transparent;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    width: 250px;
+    height: max-content;
+}
+
+.bodier .register form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bodier .register form .signup-on {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bodier .register form .signup-on .sign_up {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bodier .register form .signup-on .sign_up div {
+    margin: 0 10px;
+}
+
+.bodier .register form .sign-bottom {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bodier .register form .sign_up_submit {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bodier .register form .sign_up_submit input[type=button] {
+    padding: 5px;
+    font-size: 2em;
+    width: 100%;
+    border-radius: 20px;
+    background-color: deeppink;
+}
+
+
+/* About us */
+
+.bodier>.about {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bodier>.about h2 {
+    margin-top: 5%;
+    margin-bottom: 0;
+    font-size: 5em;
+    border: none;
+    border-top: 1px double white;
+    border-bottom: 1px double white;
+}
+
+.all-ep>.ep {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 4mm ridge rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: fit-content;
+}
+
+.all-ep>.ep>div {
+    width: 60%;
+    height: 100%;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    flex-direction: column;
+}
+
+.all-ep>.ep>img {
+    border: 4mm ridge rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    vertical-align: baseline;
+}
+
+.all-ep>.ep>img:hover {
+    border: 4mm ridge rgba(0, 0, 0,0.1);
+}
+
+.all-ep>.ep>a {
+    font-size: 1em;
+    padding: 0.5em;
+    background-color: #333;
+    border-radius: 5px;
+}
+
+
+/* Company timeline*/
+
+.company {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url(/images/imagesclient/comp01.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.company:hover {
+    transform: scale(1);
+}
+
+.company>.container {
+    padding: 50px 0;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.company>.container>.timeline {
+    width: 80%;
+    height: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.company>.container>.timeline ul {
+    list-style: none;
+}
+
+.company>.container>.timeline ul li {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    /*#1e1f22 */
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.company>.container>.timeline ul li:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-content h1 {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+.timeline-content .date-line {
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* Company 768*/
+
+@media only screen and (min-width: 998px) {
+    .timeline::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: gainsboro;
+    }
+    .company>.container>.timeline ul li {
+        width: 50%;
+        margin-bottom: 50px;
+        position: relative;
+    }
+    .company>.container>.timeline ul li:nth-child(odd) {
+        float: left;
+        clear: right;
+        transform: translateX(-75px);
+        border-radius: 20px 0px 20px 20px;
+    }
+    .company>.container>.timeline ul li:nth-child(even) {
+        float: right;
+        clear: left;
+        transform: translateX(35px);
+        border-radius: 0px 20px 20px 20px;
+    }
+    .timeline ul li::after {
+        content: '';
+        position: absolute;
+        height: 35px;
+        width: 35px;
+        background-color: gainsboro;
+        border-radius: 50%;
+        top: 0;
+    }
+    .company>.container>.timeline ul li:nth-child(odd)::after {
+        transform: translate(50%, -50%);
+        right: -15px;
+        top: -12.5px;
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+    .company>.container>.timeline ul li:nth-child(even)::after {
+        transform: translate(-50%, -50%);
+        left: -15px;
+    }
+    .timeline ul li:hover::after {
+        background-image: linear-gradient(deeppink, aqua, yellowgreen);
+    }
+    .timeline-content .date-line {
+        position: absolute;
+        top: -35px;
+    }
+}
+
+
+/* Else */
+
+@media screen and (max-width: 998px) {
+    .company {
+        background-position: left;
+    }
+    .header {
+        justify-content: center;
+        padding: 0 0 25px 0;
+        height: 5%;
+    }
+    .header:hover,
+    .header::before:hover,
+    .header::after:hover {
+        display: none;
+    }
+    .header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: deeppink;
+        clip-path: circle(80px at top center);
+    }
+    .header::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        clip-path: circle(60px at bottom center);
+    }
+    .header .navigation {
+        display: none;
+    }
+    .header .navigation.select {
+        position: fixed;
+        margin: 0;
+        top: 9%;
+        left: 0%;
+        width: 30%;
+        height: 100%;
+        border-radius: 0 0 0 10px;
+        font-size: large;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        background: #333;
+        z-index: 10;
+    }
+    .header .navigation li a {
+        font-size: 1.1em;
+    }
+    .header .toggle {
+        position: fixed;
+        text-align: center;
+        top: 5%;
+        margin-top: 10px;
+        width: 20px;
+        height: 20px;
+        border: 0px solid;
+        border-radius: 50%;
+        cursor: pointer;
+        background: url(/images/imageshome/menu.png);
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 1000;
+    }
+    .header .toggle.select {
+        position: fixed;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background: url(/images/imageshome/close.png);
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 1000;
+    }
+    /*Register*/
+    .bodier .register form .signup-on .sign_up {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .bodier .register form .signup-bottom div textarea {
+        width: 20px;
+    }
+    /*About*/
+    div.all-ep>.ep {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    div.all-ep>.ep>img {
+        margin: 0;
+        padding: 0;
+        width: 50%;
+    }
+    div.all-ep>.ep>div {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    div.all-ep>.ep>div>h3 {
+        margin: 10px;
+    }
+}

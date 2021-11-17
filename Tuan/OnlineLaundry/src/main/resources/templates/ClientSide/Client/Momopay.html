@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://test-payment.momo.vn/qr/index.php -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="https://test-payment.momo.vn/qr/assets/icons/momo.ico">
+    <title>M2 Paygate</title>
+    <script type="text/javascript" src="./M2 Paygate_files/jquery.min.js.download"></script>
+    <script type="text/javascript" src="./M2 Paygate_files/moment.min.js.download"></script>
+    <script type="text/javascript" src="./M2 Paygate_files/bootstrap.min.js.download"></script>
+    <script type="text/javascript" src="./M2 Paygate_files/bootstrap-datetimepicker.min.js.download"></script>
+    <link rel="stylesheet" type="text/css" href="./M2 Paygate_files/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./M2 Paygate_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./M2 Paygate_files/bootstrap-datetimepicker.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- CSS -->
+    <style>
+        .myForm {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            font-size: 0.8em;
+            padding: 1em;
+            /* border: 1px solid #ccc;
+            border-radius: 0.8em; */
+            margin: 5px;
+        }
+        .wrapper{
+            margin-top: 10px;
+        }
+        .container-contact {
+            width: 100%;
+            min-height: 100vh;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            /*background: url("./assets/img/patterns-top.svg"),*/
+            /*url("./assets/img/patterns-right-top.svg"),*/
+            /*url("./assets/img/patterns-right-bottom.svg"),*/
+            linear-gradient(to top,#fff,#fffbfe);
+            background-repeat: no-repeat,no-repeat,no-repeat,repeat-x;
+            background-position: left top,right top,right bottom;
+        }
+        .wrap-contact {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 5px;
+            box-shadow: 0 2px 8px 2px rgb(0 0 0 / 8%);
+        }
+        .button-momo {
+            background: #b30077;
+            border-color: #b30077;
+            color: white;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .button-momo:hover {
+            background: #b30077;
+            border-color: #b30077;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .contact-form-title {
+            display: block;
+            font-family: Poppins-SemiBold;
+            font-size: 1.5em;
+            color: #333333;
+            line-height: 28px;
+            font-weight: 700;
+            text-align: center;
+            padding-bottom: 12px;
+            padding-top: 12px;
+        }
+        label {
+            font-size: 0.9rem;
+            color: #676266;
+        }
+        .form-control {
+            width: 100%;
+            border: 2px solid #b9bdc1;
+            color: #292127;
+        }
+    </style>
+</head>
+<body>
+<div >
+    <div style="width: 70%;margin: 10% auto;">
+        <div class="wrapper">
+            <!-- <h1 style="text-align: center;">Cổng thanh toán All-in-one</h1> -->
+            <div class="contact-form-title">
+                <img src="https://developers.momo.vn/images/logo.png" width="60px" /></a>
+                Pay QR
+            </div>
+            <div class="col-ms-12 mx-auto">
+                <form  id="myForm" class="myForm" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="https://test-payment.momo.vn/qr/index.php">
+                    <div style="display: none">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="fxRate">PartnerCode</label>
+                                <div id="fxRate">
+                                    <input type="text" class="form-control" name="partnerCode" value="MOMOBKUN20180529"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="fxRate">AccessKey</label>
+                                <div id="fxRate">
+                                    <input type="text" class="form-control" name="accessKey" value="klm05TvNBzhg7h7j"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="fxRate">SecretKey</label>
+                                <div id="fxRate">
+                                    <input type="text" class="form-control" name="secretKey" value="at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <label for="fxRate">OrderId</label>
+                                <div id="fxRate">
+                                    <input type="text" class="form-control" name="orderId" value="1630640985"/>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="fxRate">NotifyUrl</label>
+                                <div id="fxRate">
+                                    <input type="text" class="form-control" name="notifyUrl" value="https://momo.vn/"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="fxRate">ReturnUrl</label>
+                                <div id="fxRate">
+                                    <input type="text" class="form-control" name="returnUrl" value="https://momo.vn/"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fxRate">ExtraData</label>
+                            <div id="fxRate">
+                                <input type="text" class="form-control" name="extraData" value="merchantName=Payment"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="width: 100%;margin: 10px auto">
+                        <div class="col-sm-6">
+                            <label for="fxRate" class="fs-1">OrderInfo</label>
+                            <div id="fxRate">
+                                <textarea type="text" readonly class="form-control" name="orderInfo" form="myForm" th:text="${info}" th:value="${info}"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="fxRate" class="fs-1">Amount</label>
+                            <div id="fxRate">
+                                <input type="text" readonly class="form-control" name="amount" th:value="${sumVNDAfterTax}" form="myForm"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-12" style="margin-top: 1em;">
+                            <button type="submit" class="btn btn-lg button-momo" form="myForm">Send request</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body></html>

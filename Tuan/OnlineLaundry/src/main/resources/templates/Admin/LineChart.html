@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="row" style="display: flex;justify-content: center;align-items: center">
+    <div id="container"></div>
+</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: "Admin_LineChart", success: function (result) {
+                var Services = JSON.parse(result).services;
+                var Books = JSON.parse(result).books;
+                drawLineChart(Services, Books);
+            }
+        });
+    });
+
+    function drawLineChart(Services, Books) {
+        Highcharts.chart('container', {
+            chart: {
+                type: 'line',
+                width: 600
+            },
+            title: {
+                text: 'Option ABC Laundry'
+            },
+
+            subtitle: {
+                text: 'Source: www.laundry.com'
+            },
+
+            yAxis: {
+                title: {
+                    text: 'Service Selection'
+                }
+            },
+
+            xAxis: {
+                // accessibility: {
+                //     rangeDescription: 'Range: 2010 to 2017'
+                // }
+                categories: Services
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<strong>' + this.x + ':</strong>' + this.y;
+                },
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} K</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            series: [{
+                name: 'Services',
+                data: Books
+            }]
+            // legend: {
+            //     layout: 'vertical',
+            //     align: 'right',
+            //     verticalAlign: 'middle'
+            // },
+            //
+            // plotOptions: {
+            //     series: {
+            //         label: {
+            //             connectorAllowed: false
+            //         },
+            //         pointStart: 2010
+            //     }
+            // },
+            //
+            // series: [{
+            //     name: 'Installation',
+            //     data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+            // }, {
+            //     name: 'Manufacturing',
+            //     data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+            // }, {
+            //     name: 'Sales & Distribution',
+            //     data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
+            // }, {
+            //     name: 'Project Development',
+            //     data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
+            // }, {
+            //     name: 'Other',
+            //     data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+            // }],
+            //
+            // responsive: {
+            //     rules: [{
+            //         condition: {
+            //             maxWidth: 500
+            //         },
+            //         chartOptions: {
+            //             legend: {
+            //                 layout: 'horizontal',
+            //                 align: 'center',
+            //                 verticalAlign: 'bottom'
+            //             }
+            //         }
+            //     }]
+            // }
+
+        });
+    }
+</script>
+</html>

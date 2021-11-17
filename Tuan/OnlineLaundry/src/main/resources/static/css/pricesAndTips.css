@@ -1,0 +1,199 @@
+#prices{
+    padding: 120px 0;
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    color: #777;
+    font-weight: 300;
+    width: 100% !important;
+    height: 100% !important;
+    font-size: 14px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    margin: 0;
+}
+.section-title {
+    background: #444 url(../images/imagesclient/pricesAndTips/menu-bg.jpg) center center no-repeat fixed;
+    background-size: cover;
+    margin-bottom: 70px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-title .overlay {
+    padding: 80px 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.section-title h2 {
+    color: #fff;
+    margin: 0 0 20px 0;
+    font-weight: 500;
+    font-size: 34px;
+    text-transform: uppercase;
+    font-family: inherit;
+    line-height: 1.1;
+}
+
+.section-title hr {
+    margin: 0 auto;
+    margin-bottom: 40px;
+    height: 2px;
+    width: 70px;
+    text-align: center;
+    position: relative;
+    background: #1EF2A4;
+    border: 0;
+    box-sizing: content-box;
+    opacity: inherit
+}
+
+.section-title p {
+    font-size: 22px;
+    color: rgba(255,255,255,0.8);
+    margin: 0 0 10px;
+}
+
+#service {
+    padding: 120px 0 0px 0;
+    display: block;
+}
+
+.container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after,  .pager:before, .pager:after, .panel-body:before, .panel-body:after{
+    display: table;
+    content: " ";
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-xs-12 {
+    width: 100%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-sm-12, .col-md-6{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#service .menu-item-description {
+    font-size: 15px;
+    text-align: center;
+}
+
+.btn-custom {
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #1EF2A4;
+    border: 0;
+    padding: 14px 20px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-radius: 0;
+    margin-top: 20px;
+    transition: all 0.5s;
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+.glyphicon-scissors:before {
+    content: "\e226";
+}
+
+.btn-lg, .btn-group-lg > .btn {
+    line-height: 1.3333333;
+}
+
+.btn_sep {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+}
+
+.container:after, .container-fluid:after, .row:after, .form-horizontal .form-group:after, .btn-toolbar:after, .btn-group-vertical > .btn-group:after, .pager:after, .panel-body:after{
+    clear: both;
+}
+
+/*Tips Section*/
+#tips{
+    padding: 0 0 120px 0;
+}
+
+#tips .section-title{
+    background: #444 url("../images/imagesclient/pricesAndTips/tips.jpeg") center center no-repeat fixed;
+    background-size: cover;
+    margin-bottom: 50px;
+}
+
+#tips .section-title p{
+    font-size: 22px;
+    color: rgba(255,255,255,0.8);
+    font-family: 'Raleway', sans-serif;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    margin: 0 0 10px;
+}
+
+.img-responsive{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+}
+
+.clearfix{
+    display: block;
+}
+
+.clearfix:after{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.faq_title{
+    font-size: 22px;
+    color: rgba(255,255,255,0.8);
+    font-family: 'Raleway', sans-serif;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    margin: 0 0 10px;
+}

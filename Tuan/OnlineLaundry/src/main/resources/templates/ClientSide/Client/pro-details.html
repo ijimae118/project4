@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragmentsClient :: pro_head">
+</head>
+<style>
+    .btn-outline-dark:hover{
+        color: white;
+    }
+</style>
+<body>
+    <header th:replace="fragmentsClient :: pro_header">
+    </header>
+    <div class="cont-boder">
+        <boder>
+            <div class="dt-left">
+                <ul class="nav-left">
+                    <li onmouseover="this.style.background='linear-gradient(to right,lightcyan,#fffffa)'" th:each="se : ${list_services}"><a th:href="@{'/getServices?id='+${se.getId()}}"><img onclick="imgSlider('images/washiron.png')" th:src="@{'images/'+${se.getImage()}}" alt=""/></a></li>
+<!--                    <li><img onclick="imgSlider('images/daunhat.png')" src="images/daunhat.png" alt=""></li>-->
+<!--                    <li><img onclick="imgSlider('images/comp01.jpg')" src="images/comp01.jpg" alt=""></li>-->
+<!--                    <li><img onclick="imgSlider('images/log01.jpg')" src="images/log01.jpg" alt=""></li>-->
+                </ul>
+                <div class="img-bx">
+                    <img class="img-main" th:src="@{'images/'+${ser.getImage()}}" alt="" srcset="">
+                </div>
+            </div>
+            <div class="dt-right">
+                <div class="content">
+                    <form action="#" method="POST">
+                        <h2 th:text="${ser.getName()}">Name</h2>
+                        <h4 th:text="${'$ '+ser.getPrice()+' /'+ser.getType()}">12.00</h4>
+<!--                        <h5>-->
+<!--                            <input id="changePrice" onchange="change()" class="btn btn-dark" size="1" pattern="^\d{1,}$" type="number" value="1" style="width: 80px;" />/<span th:text="${ser.getType()}"></span>-->
+<!--                        </h5>-->
+                        <p th:text="${ser.getDescription()}">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia aliquid consequatur possimus dolore quibusdam ad, iusto asperiores impedit sint explicabo sit reiciendis suscipit accusamus quos incidunt cumque nisi, temporibus
+                            laboriosam!
+                        </p>
+                        <a class="btn btn-outline-dark" th:href="@{/show_product#ser}">Back</a>
+                        <a type="submit" class="btn btn-outline-info" th:href="@{'/addCart/'+${ser.getId()}}">Book +</a>
+                    </form>
+                </div>
+            </div>
+        </boder>
+    </div>
+    <footer class="footer-details">
+        <div class="cover-f-details">
+            <div class="left-f-detail">
+                <div id="fb-root"></div>
+                <div class="fb-comments" data-href="http://127.0.0.1:5500/Client/pro-details.html" data-width="" data-numposts="5"></div>
+            </div>
+            <div class="right-f-detail">
+
+            </div>
+        </div>
+    </footer>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0&appId=217138609816514&autoLogAppEvents=1" nonce="S6MRP9eB"></script>
+    <script>
+        // change imgSlider 
+        function imgSlider(anything) {
+            document.querySelector('.img-main').src = anything;
+        }
+    </script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+
+</html>

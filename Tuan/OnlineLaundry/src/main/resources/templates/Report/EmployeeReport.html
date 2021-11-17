@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Payroll Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{css/report.css}">
+</head>
+<body>
+<div id="photo">
+    <p id="printReport"><b class="printReportTitle">PRINT REPORT:</b>
+        <button onclick="printContent('employeeReport')" class="btn btn-success">PRINT</button>
+    </p>
+    <hr style="margin: 0 80px 0 80px"/>
+    <div class="container" id="employeeReport">
+        <div class="item1">
+            <div class="current-new-color-grid">
+                <h3><b style="color: red"> AbC</b>laundryOnlineWep</h3>
+            </div>
+            <div class="information">
+                <p><b>Hotline: 0913805538</b></p>
+                <p><b>http://www.Laundry.com</b></p>
+                <p><b th:text="${current_date}">Sunday, September 12, 2021 </b></p>
+                <p><b>590 CACH MANG THANG TAM 8, WARD 11, DISTRICT 3, HCM CITY</b></p>
+            </div>
+        </div>
+
+        <div class="item2">
+
+            <p class="title-report">PAYROLLS ABC LAUNDRYONLINE</p>
+        </div>
+
+        <div class="item3">
+
+            <table class="table" style="table-border-color-dark: #3333cc;">
+                <thead class="color-input-field">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Job position</th>
+                    <th scope="col"> Base salary</th>
+                    <th scope="col">Workdays</th>
+                    <th scope="col">Total receiving</th>
+                    <th scope="col">Transf ATM</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="e : ${payslip}">
+
+                    <td th:text="${e.getName2()}"></td>
+                    <td th:text="${e.getDepart3()}"></td>
+                    <td>
+                        [[${#numbers.formatDecimal(e.getBasissal13(), 0, 'COMMA', 2, 'POINT')}]]
+                    </td>
+                    <td th:text="${e.getAcworkday12()}"></td>
+                    <td>
+                        [[${#numbers.formatDecimal(e.getSumreceived27(), 0, 'COMMA', 2, 'POINT')}]]
+                    </td>
+                    <td>
+                        [[${#numbers.formatDecimal(e.getTransatm28(), 0, 'COMMA', 2, 'POINT')}]]
+                    </td>
+                </tr>
+
+                <tr>
+                    <th style="color: red" colspan="7">Total number of employees receiving this month salary of
+                        ABC Laundry_Company (Person):
+                    </th>
+                    <th th:text="${payslip.size()}"></th>
+                    <th style="color: red">Total salary this month(VND):
+                    <th> [[${#numbers.formatDecimal(total, 0, 'COMMA', 2, 'POINT')}]]</th>
+                </tr>
+
+                <tr>
+                    <th style="color: darkgreen" colspan="6">Chief accountant(Signed)</th>
+                    <br/>
+                    <th style="color: darkgreen" colspan="6">TRAN VAN MINH</th>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <canvas id="myChart" width="150" height="30"></canvas>
+</div>
+<script th:inline="javascript">
+    let myChart = document.getElementById('myChart').getContext('2d');
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 12;
+    Chart.defaults.global.defaultFontColor = '#777';
+    let labels = [];
+    let salaries = [];
+    /*[# th:each="p: ${payslip}"]*/
+    labels.push([[${p.getName2()}]]);
+    salaries.push([[${p.getTransatm28()}]]);
+    /*[/]*/
+    let massPopChart = new Chart(myChart, {
+        type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        data:{
+            labels:labels,
+            datasets:[{
+                label:'Monthly salary',
+                data: salaries,
+                //backgroundColor:'green',
+                backgroundColor:[
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)',
+                    'rgba(255, 159, 64, 0.6)',
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 99, 132, 0.6)'
+                ],
+                borderWidth:1,
+                borderColor:'#777',
+                hoverBorderWidth:3,
+                hoverBorderColor:'#000'
+            }]
+        },
+        options:{
+            title:{
+                display:true,
+                text:'PAYROLLS ABC LAUNDRYONLINE',
+                fontSize:25
+            },
+            legend:{
+                display:true,
+                position:'right',
+                labels:{
+                    fontColor:'#000'
+                }
+            },
+            layout:{
+                padding:{
+                    left:50,
+                    right:0,
+                    bottom:0,
+                    top:0
+                }
+            },
+            tooltips:{
+                enabled:true
+            }
+        }
+    });
+</script>
+
+</body>
+<script>
+    function printContent(el) {
+        var restorepage = document.body.innerHTML;
+        var printcontent = document.getElementById(el).innerHTML;
+        document.body.innerHTML = printcontent;
+        window.print();
+        document.body.innerHTML = restorepage;
+    }
+</script>
+</html>
